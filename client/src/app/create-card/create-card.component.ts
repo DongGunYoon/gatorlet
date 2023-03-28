@@ -17,23 +17,33 @@ export class CreateCardComponent {
     frontItems: string[] = [''];
     backItems: string[] = [''];
   
-    sendData() {
-      const data = { frontItems: this.frontItems, backItems: this.backItems };
+    createCards() {
+      
 
       const headers = { Authorization: sessionStorage.getItem('accessToken') };
       
+      for (var i = 0; i < this.frontItems.length; i++) {
+
+        const data = { 
+            folderId: localStorage.getItem("folderId"),
+            question: this.frontItems[i],
+            answer: this.frontItems[i]
+         };
+
       axios.post('http://api.memorly.kro.kr/users/card', data, { headers })
           .then(response => {
             // Request was successful, log the response data
             console.log(response.data);
-
-            this.router.navigateByUrl('library');
+            if (i == this.frontItems.length - 1) {
+                this.router.navigateByUrl('card-view');
+            }
 
           })
           .catch(error => {
             // Request failed, log the error message
             console.error(error.message);
           });
+        }
     }
   
     addItem() {
