@@ -24,6 +24,8 @@ import { BrowseComponent } from './browse';
 import { LibraryComponent } from './library';
 import { CardViewComponent } from './card-view';
 import { CreateFolderComponent } from './create-folder';
+import { CardModalComponent } from './card-view';
+import { FolderModalComponent } from './library';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { CreateFolderComponent } from './create-folder';
     BrowseComponent,
     LibraryComponent,
     CardViewComponent,
-    CreateFolderComponent
+    CreateFolderComponent,
+    CardModalComponent,
+    FolderModalComponent
   ],
   imports: [
     BrowserModule,

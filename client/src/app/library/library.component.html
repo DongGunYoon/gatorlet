@@ -1,8 +1,10 @@
-<div class="p-2 text-center bg-light" style="margin-top: 58px;">
+<div class="p-2 text-center bg-light" style="margin-top: 58px; position:relative">
 
   <h2 class="mb-3">Folder Library</h2>
 
-  <a mat-raised-button href="/create-folder" style="text-align: center">Add New Folder</a>
+  <div class="top-right">
+  <button mat-raised-button (click)="newFolder()">Add new folder</button>
+</div>
 </div>
 
 <mat-grid-list cols="4" rowHeight="300px">
