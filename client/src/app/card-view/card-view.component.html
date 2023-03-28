@@ -26,6 +26,15 @@
         <button mat-raised-button (click)="flipCard()">Flip</button>
     </div>
 
+    <h2 class="front">
+        <div *ngIf="showFront; else elseBlock0">
+            Front:
+          </div>
+          <ng-template #elseBlock0>
+            Back:
+          </ng-template>
+          </h2>
+
     <h2>
     <div *ngIf="showFront; else elseBlock">
         {{cards[position].question}}
