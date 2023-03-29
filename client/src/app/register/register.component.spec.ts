@@ -1,13 +1,13 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { Component } from '@angular/core';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {Router} from '@angular/router';
+//import { Component } from '@angular/core';
+//import {MatSnackBar} from '@angular/material/snack-bar';
+//import {Router} from '@angular/router';
 //import { NgModule } from '@angular/core';
 //import { NgMaterialModule } from '../ng-material/ng-material.module';
 //import axios from 'axios';
 import { RegisterComponent } from './register.component';
+import { AppModule } from '../app.module';
 
-/*
 describe('RgisterComponent', () => {
 
     let component: RegisterComponent;
@@ -22,9 +22,10 @@ describe('RgisterComponent', () => {
         await TestBed.configureTestingModule({
           declarations: [ RegisterComponent ],
           imports: [
-            Component,
-            MatSnackBar,
-            Router,
+            //Component,
+            //MatSnackBar,
+            //Router,
+            AppModule
             //NgModule,
             //NgMaterialModule
             //axios
@@ -52,6 +53,7 @@ describe('RgisterComponent', () => {
         passwordInput.dispatchEvent(new Event('input'));
 
         fixture.detectChanges();
+        
 
         expect(passwordValidity).toBeFalse();
       });
@@ -66,4 +68,3 @@ describe('RgisterComponent', () => {
       });
 
 })
-*/

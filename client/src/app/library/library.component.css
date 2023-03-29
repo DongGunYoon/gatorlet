@@ -1,6 +1,9 @@
 .center {
-  width: 75%;
   margin: 10px auto;
+}
+
+.center-text {
+  text-align: center;
 }
 
 .main-div {
@@ -8,10 +11,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.align-center {
-  flex: 1 1 auto;
 }
 
 .space-cards {
@@ -24,4 +23,20 @@
 .side-button {
   display: flex;
   flex-direction: row;
+}
+
+.top-right {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+}
+
+.modal-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid black;
 }

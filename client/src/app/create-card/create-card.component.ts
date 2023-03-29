@@ -27,7 +27,7 @@ export class CreateCardComponent {
         const data = { 
             folderId: localStorage.getItem("folderId"),
             question: this.frontItems[i],
-            answer: this.frontItems[i]
+            answer: this.backItems[i]
          };
 
       axios.post('http://api.memorly.kro.kr/users/card', data, { headers })
