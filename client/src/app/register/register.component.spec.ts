@@ -71,4 +71,4 @@ describe('RegisterComponent', () => {
 
         expect(component.isUsernameValid).toBeTrue();
       });
-})
+    })
