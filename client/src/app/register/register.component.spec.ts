@@ -36,12 +36,6 @@ describe('RegisterComponent', () => {
       beforeEach(() => {
         fixture = TestBed.createComponent(RegisterComponent);
         component = fixture.componentInstance;
-        fixture.detectChanges();
-        emailInput = fixture.nativeElement.querySelector('#email');
-        passwordInput = fixture.nativeElement.querySelector('#password');
-        userInput = fixture.nativeElement.querySelector('#username');
-        passwordValidity = fixture.nativeElement.querySelector('#isPasswordValid');
-        userValidity = fixture.nativeElement.querySelector('#isUsernameValid')
       });
 
       it('should create', () => {
@@ -49,22 +43,32 @@ describe('RegisterComponent', () => {
       });
     
       it('should set \'isPasswordValid\' to false if password is under 8 characters', () => {
-        passwordInput.value = '1234';
-        passwordInput.dispatchEvent(new Event('input'));
+        component.password = '1234';
+        component.validatePassword();
 
-        fixture.detectChanges();
-        
+        expect(component.isPasswordValid).toBeFalse();
+      });
 
-        expect(passwordValidity).toBeFalse();
+      it('should set \'isPasswordValid\' to true if password is 8 characters', () => {
+        component.password = '12345678';
+        component.validatePassword();
+
+        expect(component.isPasswordValid).toBeTrue();
       });
 
       it('should set \'isUsernameValid\' to false if username contains non-alpha-numeric characters', () => {
-        userInput.value = 'test=+[}\\';
-        userInput.dispatchEvent(new Event('input'));
+        
+        component.username = 'test=+[}\\';
+        component.validateUsername();
 
-        fixture.detectChanges();
-
-        expect(userValidity).toBeFalse();
+        expect(component.isUsernameValid).toBeFalse();
       });
 
+      it('should set \'isUsernameValid\' to true if username does not contain non-alpha-numeric characters', () => {
+        
+        component.username = 'test1';
+        component.validateUsername();
+
+        expect(component.isUsernameValid).toBeTrue();
+      });
 })
