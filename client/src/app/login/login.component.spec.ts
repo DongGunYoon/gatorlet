@@ -29,6 +29,13 @@ describe('LoginComponent', () => {
   });
 
   it('should log in a user successfully', () => {
+
+
+
+
+    component.login('test1234@gmail.com','123456');
+    
+
     const mockResponse = { token: 'testToken' };
     const emailInput = fixture.nativeElement.querySelector('#email');
     emailInput.value = 'test@test.com';
