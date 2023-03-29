@@ -1,10 +1,9 @@
-
 <!--Try to change this to display folder name-->
 <div class="p-2 text-center bg-light" style="margin-top: 58px; position:relative">
     <h2 class="mb-3">Card View</h2>
     <div class="top-right">
-<button mat-raised-button (click)="newCard()">Add new card</button>
-</div>
+        <button mat-raised-button (click)="newCard()">Add new card</button>
+    </div>
 </div>
 <!--
     <div class="cycleLeft">
@@ -17,49 +16,45 @@
 <div class="card-position">
     <td style="text-align: center">
         <mat-card [style.width.px]=600 [style.height.px]=350 class="card-content">
-        
-            
-        
-      
-      <mat-card-content> 
-    <div class="flip">
-        <button mat-raised-button (click)="flipCard()">Flip</button>
-    </div>
+            <mat-card-content>
+                <div class="flip">
+                    <button mat-raised-button (click)="flipCard()">Flip</button>
+                </div>
 
-    <h2 class="front">
-        <div *ngIf="showFront; else elseBlock0">
-            Front:
-          </div>
-          <ng-template #elseBlock0>
-            Back:
-          </ng-template>
-          </h2>
+                <h2 class="front">
+                    <div *ngIf="showFront; else elseBlock0">
+                        Front
+                    </div>
+                    <ng-template #elseBlock0>
+                        Back
+                    </ng-template>
+                </h2>
 
-    <h2>
-    <div *ngIf="showFront; else elseBlock">
-        {{cards[position].question}}
-      </div>
-      <ng-template #elseBlock>
-        {{cards[position].answer}}
-      </ng-template>
-      </h2>
-    
-      </mat-card-content>
+                <h2>
+                    <div *ngIf="showFront; else elseBlock">
+                        {{cards[position].question}}
+                    </div>
+                    <ng-template #elseBlock>
+                        {{cards[position].answer}}
+                    </ng-template>
+                </h2>
 
-    </mat-card>
+            </mat-card-content>
+
+        </mat-card>
 </div>
 
 
 <div class="position">
     <div class="spacing">
-    <button mat-raised-button color="primary" (click)="cycleLeft()"><-</button>
-</div>
-<h2>
-    
-{{position + 1}} / {{size}}
+        <button mat-raised-button color="primary" (click)="cycleLeft()"> <- </button>
+    </div>
+    <h2>
 
-</h2>
-<div class="spacing">
-<button mat-raised-button color="primary" (click)="cycleRight()">-></button>
-</div>
+        {{position + 1}} / {{size}}
+
+    </h2>
+    <div class="spacing">
+        <button mat-raised-button color="primary" (click)="cycleRight()"> -> </button>
+    </div>
 </div>
