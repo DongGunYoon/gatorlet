@@ -33,7 +33,7 @@ export class LibraryComponent implements OnInit {
   newFolder() {
     this.dialog.open(FolderModalComponent, {
         width: '600px',
-        height: '350px',
+        height: '250px',
         enterAnimationDuration: '0ms', 
         exitAnimationDuration: '0ms'
       });
