@@ -33,7 +33,7 @@ export class CardViewComponent {
 
         const folderId = localStorage.getItem("folderId");
 
-        this.http.get('http://api.memorly.kro.kr/folders/' + folderId, { "headers": {"Authorization": sessionStorage.getItem('accessToken') || ""} }).subscribe((response: any) => {
+        this.http.get('http://api.memorly.kro.kr/folders/' + folderId, { "headers": {"Authorization": localStorage.getItem('accessToken') || ""} }).subscribe((response: any) => {
 
         console.log(response);
           this.cards = response.data.folder.cards.map((card: any) => ({
@@ -99,7 +99,7 @@ export class CardViewComponent {
     createCard(question1 : string,  answer1 : string) {
       
 
-        const headers = { Authorization: sessionStorage.getItem('accessToken') };
+        const headers = { Authorization: localStorage.getItem('accessToken') };
         
         
           const data = { 

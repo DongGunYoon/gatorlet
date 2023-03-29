@@ -7,14 +7,13 @@ import {Router} from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { tap, delay } from 'rxjs/operators';
 
-@Injectable({providedIn: 'root'
-})
+@Injectable()
 export class AuthService {
 
   private readonly apiUrl = 'http://api.memorly.kro.kr/users/login';
 
    constructor(private snackBar: MatSnackBar,
-   private router: Router) { }
+    private router: Router) { }
 
   
   login(email1:string, password1:string): Observable<string> {
@@ -26,10 +25,10 @@ export class AuthService {
     return new Observable(observer => {
         axios.post('http://api.memorly.kro.kr/users/login', data)
           .then((response) => {
-              //log response
-              console.log(response);
-              console.log(response.data.data.accessToken);
-              console.log(response.data.data.refreshToken);
+              // //log response
+              // console.log(response);
+              // console.log(response.data.data.accessToken);
+              // console.log(response.data.data.refreshToken);
 
               //set jwts
               localStorage.setItem('accessToken', response.data.data.accessToken);
