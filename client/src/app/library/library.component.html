@@ -1,20 +1,19 @@
-<div class="p-2 text-center bg-light" style="margin-top: 58px; position:relative">
+<div class="p-2 folder-header text-center bg-light" style="margin-top: 58px; position:relative">
 
   <h2 class="mb-3">Folder Library</h2>
 
   <div class="top-right">
-  <button mat-raised-button (click)="newFolder()">Add new folder</button>
-</div>
+    <button mat-raised-button (click)="newFolder()">Add New Folder</button>
+  </div>
 </div>
 
-<mat-grid-list cols="4" rowHeight="300px">
-  <mat-card *ngFor="let folder of folders" 
-    [style.width]="'25%'">
+<mat-grid-list cols="1">
+  <mat-card class="modal-container center" *ngFor="let folder of folders">
     <mat-icon>{{ folder.icon }}</mat-icon>
     <mat-card-content>
-      <h3>{{ folder.title }}</h3>
-      <button mat-raised-button color="primary" (click)="goToFolder(folder.id)">View cards</button>
-      
+      <h3 class="center-text">{{ folder.title }}</h3>
+      <button mat-raised-button color="primary" (click)="goToFolder(folder.id)">View Cards</button>
+
     </mat-card-content>
   </mat-card>
 </mat-grid-list>

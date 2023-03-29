@@ -27,8 +27,6 @@ export class LibraryComponent implements OnInit {
   goToFolder(folderId : any): void {
 
     localStorage.setItem("folderId", folderId)
-
-    //this.router.navigateByUrl('create-card');
     this.router.navigateByUrl('card-view');
   }
 
