@@ -4,6 +4,7 @@
 
 <div class="p-5 text-center bg-light" style="margin-top: 58px;">
     <h1 class="mb-3">Welcome to our CEN3031 Project!</h1>
+    <ng-container *ngIf="!isLoggedIn()">
     <mat-card-title style = "text-align: center;">
         Please 
         <a mat-raised-button href="/login" style="text-align: center">Log in</a>
@@ -11,7 +12,12 @@
          <a mat-raised-button href="/register" style="text-align: center">Create an Account</a> 
          to get started.
       </mat-card-title>
-    
+    </ng-container>
+    <ng-container>
+      <mat-card-title style = "text-align: center;"> 
+        <a mat-raised-button href="/library" style="text-align: center">Let's Start Studying!</a>
+      </mat-card-title>
+    </ng-container>
 </div>
 
 <!-- <div class="main-div">
