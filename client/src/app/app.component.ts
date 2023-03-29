@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'CEN3031Project';
-  public isLoggedIn: boolean = false;
+  public isLoggedIn: boolean = true;
   public username: string = '';
 
   public readBoolFromLocal(key: string): boolean{
