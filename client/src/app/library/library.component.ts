@@ -16,7 +16,7 @@ export class LibraryComponent implements OnInit {
   constructor(private http: HttpClient, private router:Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.http.get('http://api.memorly.kro.kr/folders', { "headers": {"Authorization": sessionStorage.getItem('accessToken') || ""} }).subscribe((response: any) => {
+    this.http.get('http://api.memorly.kro.kr/folders', { "headers": {"Authorization": localStorage.getItem('accessToken') || ""} }).subscribe((response: any) => {
       this.folders = response.data.folders.map((folder: any) => ({
         id: folder.id,
         title: folder.title,
@@ -54,7 +54,7 @@ export class FolderModalComponent {
         const data = { title };
 
         // Define the headers with the access token
-        const headers = { Authorization: sessionStorage.getItem('accessToken') };
+        const headers = { Authorization: localStorage.getItem('accessToken') };
         
         // Make the POST request
         axios.post('http://api.memorly.kro.kr/folder', data, { headers })

@@ -1,34 +1,77 @@
-//No longer needed
-
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import axios from 'axios';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {Router} from '@angular/router';
+//import * as moment from "moment";
 
-@Injectable({
-  providedIn: 'root'
+import { Observable, of } from 'rxjs';
+import { tap, delay } from 'rxjs/operators';
+
+@Injectable({providedIn: 'root'
 })
 export class AuthService {
 
   private readonly apiUrl = 'http://api.memorly.kro.kr/users/login';
 
-  constructor(private http: HttpClient) {}
+   constructor(private snackBar: MatSnackBar,
+   private router: Router) { }
 
-  login(email: string, password: string) {
-    return this.http.post<any>(this.apiUrl, { email, password })
-      .toPromise()
-      .then(response => {
-        // Save the JWT token to local storage
-        localStorage.setItem('token', response.token);
-      });
-  }
+  
+  login(email1:string, password1:string): Observable<string> {
+    const data = {
+      email: email1,
+      password: password1
+    };
 
-  logout() {
-    // Remove the JWT token from local storage
-    localStorage.removeItem('token');
-  }
+    return new Observable(observer => {
+        axios.post('http://api.memorly.kro.kr/users/login', data)
+          .then((response) => {
+              //log response
+              console.log(response);
+              console.log(response.data.data.accessToken);
+              console.log(response.data.data.refreshToken);
 
-  isLoggedIn() {
-    // Check if the JWT token is present in local storage
-    return localStorage.getItem('token') !== null;
-  }
+              //set jwts
+              localStorage.setItem('accessToken', response.data.data.accessToken);
+              localStorage.setItem('refreshToken', response.data.data.refreshToken);
 
+              localStorage.setItem('isLoggedIn', "true");
+              observer.next(response.data);
+              observer.complete();
+          })
+          .catch((error) => {
+            observer.error(error);
+          });
+        });
+    }
+    // private setSession(authResult) {
+    //   const expiresAt = moment().add(authResult.expiresIn,'second');
+
+    //   localStorage.setItem('id_token', authResult.idToken);
+    //   localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
+    // }          
+
+    logout() {
+      //localStorage.removeItem("id_token");
+      //localStorage.removeItem("expires_at");
+
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
+      localStorage.removeItem("isLoggedIn");
+    }
+
+    public isLoggedIn() {
+      return localStorage.getItem("isLoggedIn");
+      //return moment().isBefore(this.getExpiration());
+    }
+
+    // isLoggedOut() {
+    //   return !this.isLoggedIn();
+    // }
+
+    // getExpiration() {
+    //   const expiration = localStorage.getItem("expires_at");
+    //   const expiresAt = JSON.parse(expiration);
+    //   return moment(expiresAt);
+    // }
 }

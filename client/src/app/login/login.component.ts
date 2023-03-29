@@ -75,7 +75,7 @@ export class LoginComponent {
         },
         error: error => {
             //console.error(error);
-            this.snackBar.open('Login Error.  Please check credentials or try again later', 'x', {duration:10000});
+            //this.snackBar.open('Login Error.  Please check credentials or try again later', 'x', {duration:10000});
             if(error.response.status >= 500){
               this.snackBar.open('This one\'s on us... try again later', 'x', {duration: 10000});
             }
@@ -87,8 +87,7 @@ export class LoginComponent {
             }
             else if(error.response.message === 'Binding Error'){
               this.snackBar.open('Please fill out each form', 'x', {duration: 10000});
-    
-        }
+            }
       }
       });
     console.log("reached here");

@@ -10,6 +10,8 @@ import { tap, delay } from 'rxjs/operators';
 @Injectable()
 export class AuthService {
 
+  private readonly apiUrl = 'http://api.memorly.kro.kr/users/login';
+
    constructor(private snackBar: MatSnackBar,
     private router: Router) { }
 
