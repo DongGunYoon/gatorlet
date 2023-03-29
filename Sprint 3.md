@@ -94,5 +94,87 @@ api.memorly.kro.kr/users/login
 | 401  | Expired Token                   | When the given token is expired       |
 | 404  | No Matched User                 | When the user email does not exist    |
 
+## **Create Folder**
+
+Creating the Folder with given title
+
+**Expected Side Effect**
+
+If the user does not logged in, it will throw an unauthorized error
+
+### **Path**
+
+POST
+api.memorly.kro.kr/folder
+
+### **Error**
+
+| Code | Message                   | Case                                          |
+| ---- | ------------------------- | --------------------------------------------- |
+| 400  | Binding Error             | When the required input does not filled       |
+| 400  | Folder Name Already Taken | When the input folder name is already existed |
+| 500  | Database Error            | When the database does not response           |
+
+## **Create Card**
+
+Creating the Card with given title
+
+**Expected Side Effect**
+
+If the user does not logged in, it will throw an unauthorized error
+
+### **Path**
+
+POST  
+api.memorly.kro.kr/card
+
+### **Error**
+
+| Code | Message        | Case                                                         |
+| ---- | -------------- | ------------------------------------------------------------ |
+| 400  | Binding Error  | When the required input does not filled                      |
+| 400  | Not valid User | When the user trying to create card inside of other's folder |
+| 500  | Database Error | When the database does not response                          |
+
+## **Get Folders**
+
+Getting the folders of current user
+
+**Expected Side Effect**
+
+If the user does not logged in, it could not draw any folder
+
+### **Path**
+
+GET  
+api.memorly.kro.kr/folders
+
+### **Error**
+
+| Code | Message        | Case                                    |
+| ---- | -------------- | --------------------------------------- |
+| 400  | Binding Error  | When the required input does not filled |
+| 500  | Database Error | When the database does not response     |
+
+## **Get Folder**
+
+Getting the folder and cards of current user
+
+**Expected Side Effect**
+
+If the user does not logged in, it could not get any folder
+
+### **Path**
+
+GET  
+api.memorly.kro.kr/folders/:id
+
+### **Error**
+
+| Code | Message        | Case                                    |
+| ---- | -------------- | --------------------------------------- |
+| 400  | Binding Error  | When the required input does not filled |
+| 500  | Database Error | When the database does not response     |
+
 Our API Documentation:
 https://documenter.getpostman.com/view/12809852/2s93CRJqgL
