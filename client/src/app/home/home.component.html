@@ -13,7 +13,7 @@
          to get started.
       </mat-card-title>
     </ng-container>
-    <ng-container>
+    <ng-container *ngIf="isLoggedIn()">
       <mat-card-title style = "text-align: center;"> 
         <a mat-raised-button href="/library" style="text-align: center">Let's Start Studying!</a>
       </mat-card-title>
