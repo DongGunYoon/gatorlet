@@ -25,6 +25,7 @@ export class CardViewComponent {
     size: number = 0;
     showFront: boolean = true;
     cards: Card[] = [];
+    title: string = '';
 
     constructor(private http: HttpClient, private router:Router, public dialog: MatDialog) { }
 
@@ -44,6 +45,7 @@ export class CardViewComponent {
             //icon: folder.type === 'document' ? 'description' : 'folder'
           }));
           this.size = this.cards.length;
+          this.title = response.data.folder.title;
         });
 
       }
