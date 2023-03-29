@@ -24,6 +24,9 @@ import { BrowseComponent } from './browse';
 import { LibraryComponent } from './library';
 import { CardViewComponent } from './card-view';
 import { CreateFolderComponent } from './create-folder';
+import { CardModalComponent } from './card-view';
+import { FolderModalComponent } from './library';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
