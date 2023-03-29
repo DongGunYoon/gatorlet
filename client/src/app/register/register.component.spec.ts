@@ -8,7 +8,7 @@ import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { RegisterComponent } from './register.component';
 import { AppModule } from '../app.module';
 
-describe('RgisterComponent', () => {
+describe('RegisterComponent', () => {
 
     let component: RegisterComponent;
     let fixture: ComponentFixture<RegisterComponent>;
