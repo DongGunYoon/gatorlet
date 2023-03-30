@@ -38,9 +38,12 @@ Unit tests:
 # **List unit tests for backend**
 Unit tests:
 - A test that checks that a folder was successfully created with the Create Folder API
-- A test that checks if there is already a folder with the same name created using the Create Folder API 
+- A test that checks if there is already a folder with the same name created using the Create Folder API
+- A test that checks that folders were successfully displayed with the Get Folders API
+- A test that checks that a card was successfully created with the Create Card API
+- A test that checks that cards were successfully displayed with the Get Cards API
 
-# **Detailed documentation of your backend API**
+# **Detailed documentation of our backend API**
 
 ## **Sign Up User**
 
