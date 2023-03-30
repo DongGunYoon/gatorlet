@@ -10,17 +10,18 @@ http://api.memorly.kro.kr/
 - We would like to spend some time making the website more visually appealing
 
 # **Which issues were successfully completed**
-- We were able to accomplish the main card feature and improve user experience with an improved login feature.
+- After the user has logged in, they are no longer prompted to log in again and are instead given a log out button
+- The user can create folders of cards and can add cards to the folders
+- The user can cycle through the cards in a folder forwards and backwards
+- The user can flip cards over to show their front or back respectively
+- Somewhat improved the security of log ins
 - Completed API to create a folder, create a card, get current user folders, and get the folder and cards of a user
 
 # **Which issues were not completed and why** 
 - Our site still needs some visual refining.
 
 
-# **List unit tests and Cypress tests for frontend**
-Cypress:
-- A test that goes to the home page and clicks to go to the login page
-
+# **List unit tests for frontend**
 Unit tests:
 - A test that checks that "Welcome to our CEN3031 Project!" is being displayed on the home page
 - A test that checks the Memorly icon is being displayed in the header
