@@ -3,6 +3,39 @@ import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http'
 import { LibraryComponent } from './library.component';
 
 import { AppModule } from '../app.module';
+
+
+describe('LibraryComponent', () => {
+  let component: LibraryComponent;
+  let fixture: ComponentFixture<LibraryComponent>;
+  let http: HttpClient;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [HttpClientModule, AppModule],
+      declarations: [LibraryComponent],
+    }).compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(LibraryComponent);
+    component = fixture.componentInstance;
+    component.folders.push({title: "testTitle"});
+    http = TestBed.inject(HttpClient);
+    fixture.detectChanges();
+  });
+
+  it('should display the name of the folder', () => {
+
+    expect(fixture.nativeElement.querySelector('div').textContent).toContain('testTitle');
+    
+  });
+
+});
+
+
+
+
 /*
 describe('LibraryComponent', () => {
   let component: LibraryComponent;

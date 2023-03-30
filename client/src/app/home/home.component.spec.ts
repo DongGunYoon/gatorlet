@@ -3,13 +3,16 @@
   import { RouterTestingModule } from '@angular/router/testing';
   import { MatCardModule } from '@angular/material/card';
   import { HomeComponent } from './home.component';
+
+  import { AppModule } from '../app.module';
   
   describe('HomeComponent', () => {
     beforeEach(async () => {
       await TestBed.configureTestingModule({
         imports: [
           RouterTestingModule,
-          MatCardModule
+          MatCardModule,
+          AppModule
         ],
         declarations: [
           HomeComponent
