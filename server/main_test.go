@@ -162,8 +162,8 @@ func TestCreateFolder(t *testing.T) {
 
 	token := resp.Data["accessToken"].(string)
 
-	//have to change folder name each time if not it will be duplicate
-	title := "test folder3"
+	regex := regexp.MustCompile("-")
+	title := regex.ReplaceAllString(uuid.New().String(), "")
 	folderData := map[string]string{"title": title}
 	folderBody, _ := json.Marshal(folderData)
 
