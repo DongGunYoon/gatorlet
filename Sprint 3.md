@@ -14,11 +14,10 @@ http://api.memorly.kro.kr/
 - The user can create folders of cards and can add cards to the folders
 - The user can cycle through the cards in a folder forwards and backwards
 - The user can flip cards over to show their front or back respectively
-- Somewhat improved the security of log ins
 - Completed API to create a folder, create a card, get current user folders, and get the folder and cards of a user
 
 # **Which issues were not completed and why** 
-- Our site still needs some visual refining.
+- Our site still needs some visual refining, but we were able to implement all of the core features we hoped to for this sprint.
 
 
 # **List unit tests for frontend**
