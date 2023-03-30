@@ -58,10 +58,11 @@ export class AuthService {
       localStorage.removeItem("accessToken");
       localStorage.removeItem("refreshToken");
       localStorage.removeItem("isLoggedIn");
+      this.router.navigateByUrl('home');
     }
 
-    public isLoggedIn() {
-      return localStorage.getItem("isLoggedIn");
+    public isLoggedIn():boolean {
+      return localStorage.getItem("isLoggedIn") === "true";
       //return moment().isBefore(this.getExpiration());
     }
 

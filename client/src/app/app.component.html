@@ -60,7 +60,7 @@ git push
             <a class="nav-link" href="/create-card">Create New Card</a>
           </li>
         -->
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="isLoggedIn()">
             <a class="nav-link" href="/library">Card Library</a>
           </li>
           
@@ -68,10 +68,13 @@ git push
 
         </ul>
         <ul class="navbar-nav mb-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+          <li class="nav-item" (click)="logout()" *ngIf="isLoggedIn()">
+            <a class="nav-link">Logout</a>
+          </li>
+          <li class="nav-item" *ngIf="!isLoggedIn()">
             <a class="nav-link" href="/login">Log in</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="!isLoggedIn()">
             <a class="nav-link" href="/register">Sign up</a>
           </li>
           <!-- <li class="nav-item">

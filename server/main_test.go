@@ -138,3 +138,94 @@ func TestGetUser(t *testing.T) {
 	assert.Equal(t, 200, resp.Status)
 	assert.NotNil(t, resp.Data)
 }
+
+func TestCreateFolder(t *testing.T) {
+	type Response struct {
+		Status  int                    `json:"status"`
+		Message string                 `json:"message"`
+		Data    map[string]interface{} `json:"data"`
+	}
+
+	router := setupRouter()
+
+	data := map[string]string{"email": "tester@gmail.com", "password": "testerPassword"}
+	body, _ := json.Marshal(data)
+
+	request, err := http.NewRequest("POST", "/users/login", bytes.NewBuffer(body))
+	assert.NoError(t, err)
+
+	w := httptest.NewRecorder()
+	router.ServeHTTP(w, request)
+
+	var resp Response
+	err = json.Unmarshal(w.Body.Bytes(), &resp)
+
+	token := resp.Data["accessToken"].(string)
+
+	//have to change folder name each time if not it will be duplicate
+	title := "test folder3"
+	folderData := map[string]string{"title": title}
+	folderBody, _ := json.Marshal(folderData)
+
+	folderRequest, folderErr := http.NewRequest("POST", "/folder", bytes.NewBuffer(folderBody))
+	assert.NoError(t, folderErr)
+
+	folderRequest.Header.Set("Authorization", token)
+
+	x := httptest.NewRecorder()
+	router.ServeHTTP(x, folderRequest)
+
+	var folderResp Response
+	folderErr = json.Unmarshal(x.Body.Bytes(), &folderResp)
+
+	assert.NoError(t, folderErr)
+	assert.Equal(t, http.StatusCreated, x.Code)
+	assert.Equal(t, "Success", folderResp.Message)
+	assert.Equal(t, 201, folderResp.Status)
+	assert.NotNil(t, folderResp.Data)
+}
+
+func TestCreateFolderWithDuplicateFolder(t *testing.T) {
+	type Response struct {
+		Status  int                    `json:"status"`
+		Message string                 `json:"message"`
+		Data    map[string]interface{} `json:"data"`
+	}
+
+	router := setupRouter()
+
+	data := map[string]string{"email": "tester@gmail.com", "password": "testerPassword"}
+	body, _ := json.Marshal(data)
+
+	request, err := http.NewRequest("POST", "/users/login", bytes.NewBuffer(body))
+	assert.NoError(t, err)
+
+	w := httptest.NewRecorder()
+	router.ServeHTTP(w, request)
+
+	var resp Response
+	err = json.Unmarshal(w.Body.Bytes(), &resp)
+
+	token := resp.Data["accessToken"].(string)
+
+	title := "test folder"
+	folderData := map[string]string{"title": title}
+	folderBody, _ := json.Marshal(folderData)
+
+	folderRequest, folderErr := http.NewRequest("POST", "/folder", bytes.NewBuffer(folderBody))
+	assert.NoError(t, folderErr)
+
+	folderRequest.Header.Set("Authorization", token)
+
+	x := httptest.NewRecorder()
+	router.ServeHTTP(x, folderRequest)
+
+	var folderResp Response
+	folderErr = json.Unmarshal(x.Body.Bytes(), &folderResp)
+
+	assert.NoError(t, folderErr)
+	assert.Equal(t, http.StatusBadRequest, x.Code)
+	assert.Equal(t, "Folder Name Already Taken", folderResp.Message)
+	assert.Equal(t, 400, folderResp.Status)
+	assert.NotNil(t, folderResp.Data)
+}

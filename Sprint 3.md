@@ -4,15 +4,16 @@ http://memorly.kro.kr/
 Our Server Address:
 http://api.memorly.kro.kr/
 
-# **Issues our team plans to address for Sprint 2**
-
-- 
+# **Issues our team plans to address for Sprint 3**
+- We want to finally implement the main feature of our app: creating and viewing flash cards!
+- We also need to improve the login feature so that site navigation can be more comfortable for the user.  At the moment, our site does not have a log out feature and the site doesn't change how it looks if a user is or isn't logged in.
+- We would like to spend some time making the website more visually appealing
 
 # **Which issues were successfully completed**
-- 
+- We were able to accomplish the main card feature and improve user experience with an improved login feature.
 
 # **Which issues were not completed and why** 
-- 
+- Our site still needs some visual refining.
 
 
 # **List unit tests and Cypress tests for frontend**
@@ -22,6 +23,14 @@ Cypress:
 Unit tests:
 - A test that checks that "Welcome to our CEN3031 Project!" is being displayed on the home page
 - A test that checks the Memorly icon is being displayed in the header
+- A test that checks that authService is created
+- A test that checks that a password that is long enough is valid
+- A test that checks that a password that is too short is not valid
+- A test that checks that a username with non-alphanumeric characters is invalid
+- A test that checks that a username with only alphanumeric characters is valid
+- A test that checks that the front of the first card in a card array is being shown
+- A test that checks that the back of the first card in a card arrau is being shown when the card is flipped
+- A test that checks that the folder name is being displayed above the card when looking through the contents of a card folder
 
 
 # **List unit tests for backend**
