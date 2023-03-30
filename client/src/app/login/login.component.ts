@@ -40,42 +40,21 @@ export class LoginComponent {
     private authService: AuthService) {}
 
   login(email1 : string,  password1 : string){
-    //const email = email1;
-    //const password = password1;
     
-    console.log("login called");
     from(this.authService.login(email1, password1))
       .subscribe({
         next: response => {
-            //this.router.navigateByUrl('library');
             //log response
             console.log(response);
-            //console.log(response.data.data.accessToken);
-            //console.log(response.data.data.refreshToken);
 
-            this.snackBar.open('Login successful', 'x', {duration: 10000});
-            // axios.post('http://api.memorly.kro.kr/user', sessionStorage.getItem('accessToken'))
-            //   .then((response2)=> {
-            //     console.log(response2);
-            //     console.log(response2.data.data.user.name);
-            //     localStorage.setItem('username', response2.data.data.user.name);
-            //     localStorage.setItem('isLoggedIn', 'true');
-            //   })
-            // .catch((error) => {
-            //   console.error(error);
-            //   if(error.response2.status >= 400){
-            //     let snackBarRef = this.snackBar.open('Error: ' + error.response2.message, 'x', {duration: 10000});
-            //   } 
-            //   //let snackBarRef = this.snackBar.open('Error getting user name', 'x', {duration: 10000});
-            // })          
+            this.snackBar.open('Login successful', 'x', {duration: 10000});        
 
             // Navigate to the home page or other protected routes
             this.router.navigateByUrl('library');
 
         },
         error: error => {
-            //console.error(error);
-            //this.snackBar.open('Login Error.  Please check credentials or try again later', 'x', {duration:10000});
+            console.error(error);
             if(error.response.status >= 500){
               this.snackBar.open('This one\'s on us... try again later', 'x', {duration: 10000});
             }
@@ -90,7 +69,6 @@ export class LoginComponent {
             }
       }
       });
-    console.log("reached here");
     }
   }
   // login(email:string, password:string){
