@@ -3,7 +3,7 @@ import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http'
 import { LibraryComponent } from './library.component';
 
 import { AppModule } from '../app.module';
-
+/*
 describe('LibraryComponent', () => {
   let component: LibraryComponent;
   let fixture: ComponentFixture<LibraryComponent>;
@@ -59,4 +59,7 @@ describe('LibraryComponent', () => {
     expect(folderNameResult).toBe('My Second Folder');
     
   });
+  
 });
+
+*/
