@@ -30,7 +30,7 @@ Unit tests:
 - A test that checks that a username with non-alphanumeric characters is invalid
 - A test that checks that a username with only alphanumeric characters is valid
 - A test that checks that the front of the first card in a card array is being shown
-- A test that checks that the back of the first card in a card arrau is being shown when the card is flipped
+- A test that checks that the back of the first card in a card array is being shown when the card is flipped
 - A test that checks that the folder name is being displayed above the card when looking through the contents of a card folder
 - A test that checks that the folder name is being displayed on the library page
 
