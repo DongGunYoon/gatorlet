@@ -11,6 +11,7 @@ http://api.memorly.kro.kr/
 
 # **Which issues were successfully completed**
 - We were able to accomplish the main card feature and improve user experience with an improved login feature.
+- Completed API to create a folder, create a card, get current user folders, and get the folder and cards of a user
 
 # **Which issues were not completed and why** 
 - Our site still needs some visual refining.
@@ -29,15 +30,15 @@ Unit tests:
 - A test that checks that a username with non-alphanumeric characters is invalid
 - A test that checks that a username with only alphanumeric characters is valid
 - A test that checks that the front of the first card in a card array is being shown
-- A test that checks that the back of the first card in a card arrau is being shown when the card is flipped
+- A test that checks that the back of the first card in a card array is being shown when the card is flipped
 - A test that checks that the folder name is being displayed above the card when looking through the contents of a card folder
+- A test that checks that the folder name is being displayed on the library page
 
 
 # **List unit tests for backend**
 Unit tests:
-- A test that checks that a user profile was successfully created with the Sign Up API
-- A test that checks if a user log in to the profile that was created with the Log In API
-- A test that returns the user profile that were created previously using the authorization token with the Get User API
+- A test that checks that a folder was successfully created with the Create Folder API
+- A test that checks if there is already a folder with the same name created using the Create Folder API 
 
 # **Detailed documentation of your backend API**
 
