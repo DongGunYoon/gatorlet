@@ -7,7 +7,7 @@ import { from } from 'rxjs';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AuthService } from './auth.service';
+import { AuthService } from '../_services/auth.service';
 
 
 @Component({ templateUrl: 'login.component.html',
