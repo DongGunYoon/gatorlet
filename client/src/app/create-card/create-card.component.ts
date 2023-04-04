@@ -16,7 +16,8 @@ export class CreateCardComponent {
 
     frontItems: string[] = ['', '', '', '', ''];
   backItems: string[] = ['', '', '', '', ''];
-  tracker(index: any, item: any) {
+
+  tracker(index: any) {
     return index;
   }
   
@@ -25,9 +26,9 @@ export class CreateCardComponent {
 
       const headers = { Authorization: localStorage.getItem('accessToken') };
         
-      
+      //This implementation has some weird buggy behavior where sometimes, the order of the cards created gets mixed up. Not sure what exactly could be causing this.
       for (var i = 0; i < this.frontItems.length; i++) {
-
+          console.log(this.frontItems[i]);
         const data = { 
             folderId: localStorage.getItem("folderId"),
             question: this.frontItems[i],
