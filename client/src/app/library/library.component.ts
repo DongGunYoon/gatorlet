@@ -5,6 +5,11 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import axios from 'axios';
 
+interface Card {
+  question: string;
+  answer: string;
+}
+
 @Component({ 
   templateUrl: 'library.component.html',
   styleUrls: ["./library.component.css"] })
@@ -12,6 +17,7 @@ import axios from 'axios';
 export class LibraryComponent implements OnInit {
 
   folders: any[] = [];
+  cards: Card[] = [];
 
   constructor(private http: HttpClient, private router:Router, public dialog: MatDialog) { }
 
@@ -27,7 +33,19 @@ export class LibraryComponent implements OnInit {
   goToFolder(folderId : any): void {
 
     localStorage.setItem("folderId", folderId)
-    this.router.navigateByUrl('card-view');
+
+    this.http.get('http://api.memorly.kro.kr/folders/' + folderId, { "headers": {"Authorization": localStorage.getItem('accessToken') || ""} }).subscribe((response: any) => {
+
+    
+          if (response.data.folder.cards === null) {
+            this.router.navigateByUrl('create-card');
+          }
+          else {
+            this.router.navigateByUrl('card-view');
+          }
+        });
+
+    
   }
 
   newFolder() {

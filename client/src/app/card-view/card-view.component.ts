@@ -47,7 +47,6 @@ export class CardViewComponent {
           this.size = this.cards.length;
           this.title = response.data.folder.title;
         });
-
       }
 
     cycleLeft() {
@@ -84,6 +83,22 @@ export class CardViewComponent {
             enterAnimationDuration: '0ms', 
             exitAnimationDuration: '0ms'
           });
+      }
+
+      shuffle() {
+        
+          var currIndex = this.size;
+          var randIndex = 0;
+          //console.log(this.cards);
+          while (currIndex != 0) {
+              randIndex = Math.floor(Math.random() * currIndex);
+              currIndex--;
+          
+              [this.cards[currIndex], this.cards[randIndex]] = [
+                this.cards[randIndex], this.cards[currIndex]];
+          }
+          
+          //console.log(this.cards);
       }
 
 }

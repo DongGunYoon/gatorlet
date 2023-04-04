@@ -8,9 +8,6 @@ describe('CardViewComponent', () => {
   let component: CardViewComponent;
   let fixture: ComponentFixture<CardViewComponent>;
   let http: HttpClient;
-  
-  let folderIdResult: string = '';
-  let folderNameResult: string = '';
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

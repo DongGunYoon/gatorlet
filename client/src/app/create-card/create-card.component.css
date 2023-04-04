@@ -1,6 +1,8 @@
 .center{
-    width: 75%;
+    
     margin: 10px auto;
+    
+    align-items: center;
   }
 
   .main-div{
@@ -13,4 +15,10 @@
   
   .align-center {
     flex: 1 1 auto;
+  }
+  .text-boxes {
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }

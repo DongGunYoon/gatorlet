@@ -14,13 +14,17 @@ export class CreateCardComponent {
 
     constructor(private router: Router) {}
 
-    frontItems: string[] = [''];
-    backItems: string[] = [''];
+    frontItems: string[] = ['', '', '', '', ''];
+  backItems: string[] = ['', '', '', '', ''];
+  tracker(index: any, item: any) {
+    return index;
+  }
   
     createCards() {
       
 
-      const headers = { Authorization: sessionStorage.getItem('accessToken') };
+      const headers = { Authorization: localStorage.getItem('accessToken') };
+        
       
       for (var i = 0; i < this.frontItems.length; i++) {
 
@@ -30,11 +34,11 @@ export class CreateCardComponent {
             answer: this.backItems[i]
          };
 
-      axios.post('http://api.memorly.kro.kr/users/card', data, { headers })
+         axios.post('http://api.memorly.kro.kr/card', data, { headers })
           .then(response => {
             // Request was successful, log the response data
             console.log(response.data);
-            if (i == this.frontItems.length - 1) {
+            if (i === (this.frontItems.length)) {
                 this.router.navigateByUrl('card-view');
             }
 
@@ -55,7 +59,6 @@ export class CreateCardComponent {
       this.frontItems.pop();
       this.backItems.pop();
     }
-
 
     /*
     //cards:  = [];
