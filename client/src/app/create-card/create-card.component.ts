@@ -21,7 +21,7 @@ export class CreateCardComponent {
     return index;
   }
   
-    createCards() {
+    async createCards() {
       
 
       const headers = { Authorization: localStorage.getItem('accessToken') };
@@ -35,7 +35,7 @@ export class CreateCardComponent {
             answer: this.backItems[i]
          };
 
-         axios.post('http://api.memorly.kro.kr/card', data, { headers })
+         await axios.post('http://api.memorly.kro.kr/card', data, { headers })
           .then(response => {
             // Request was successful, log the response data
             console.log(response.data);
