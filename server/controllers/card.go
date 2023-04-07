@@ -76,3 +76,26 @@ func CreateCard() gin.HandlerFunc {
 		c.JSON(http.StatusCreated, responses.Response{Status: http.StatusCreated, Message: "Success", Data: map[string]interface{}{"id": newCard.Id}})
 	}
 }
+
+func DeleteCard() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+		userId, _ := c.Get("id")
+		cardId, _ := primitive.ObjectIDFromHex(c.Param("id"))
+
+		result, err := cardCollection.DeleteOne(ctx, bson.M{"_id": cardId, "creatorId": userId})
+		defer cancel()
+
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, responses.Response{Status: http.StatusInternalServerError, Message: "Database Error", Data: nil})
+			return
+		}
+
+		if result.DeletedCount == 0 {
+			c.JSON(http.StatusNotFound, responses.Response{Status: http.StatusNotFound, Message: "No Matched Card", Data: nil})
+			return
+		}
+
+		c.JSON(http.StatusOK, responses.Response{Status: http.StatusOK, Message: "Success", Data: map[string]interface{}{"success": true}})
+	}
+}
