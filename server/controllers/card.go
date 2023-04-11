@@ -99,3 +99,44 @@ func DeleteCard() gin.HandlerFunc {
 		c.JSON(http.StatusOK, responses.Response{Status: http.StatusOK, Message: "Success", Data: map[string]interface{}{"success": true}})
 	}
 }
+
+func UpdateCard() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+		userId, _ := c.Get("id")
+		cardId, _ := primitive.ObjectIDFromHex(c.Param("id"))
+		var card forms.UpdateCardForm
+
+		defer cancel()
+		if err := c.BindJSON(&card); err != nil {
+			c.JSON(http.StatusBadRequest, responses.Response{Status: http.StatusBadRequest, Message: "Binding Error", Data: nil})
+			return
+		}
+
+		if validationErr := validate.Struct(&card); validationErr != nil {
+			c.JSON(http.StatusBadRequest, responses.Response{Status: http.StatusBadRequest, Message: "Validation Error", Data: nil})
+			return
+		}
+
+		update := bson.M{
+			"$set": bson.M{
+				"question":  card.Question,
+				"answer":    card.Answer,
+				"updatedAt": time.Now(),
+			},
+		}
+
+		result := cardCollection.FindOneAndUpdate(ctx, bson.M{"_id": cardId, "creatorId": userId}, update)
+		err := result.Err()
+		if err != nil {
+			if err == mongo.ErrNoDocuments {
+				c.JSON(http.StatusNotFound, responses.Response{Status: http.StatusNotFound, Message: "No Matched Card", Data: nil})
+			} else {
+				c.JSON(http.StatusInternalServerError, responses.Response{Status: http.StatusInternalServerError, Message: "Database Error", Data: nil})
+			}
+			return
+		}
+
+		c.JSON(http.StatusOK, responses.Response{Status: http.StatusOK, Message: "Success", Data: map[string]interface{}{"success": true}})
+	}
+}

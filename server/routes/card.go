@@ -11,4 +11,5 @@ func CardRoute(router *gin.Engine) {
 	router.Use(middleware.Authenticate())
 	router.POST("/card", controllers.CreateCard())
 	router.DELETE("/cards/:id", controllers.DeleteCard())
+	router.PUT("/cards/:id", controllers.UpdateCard())
 }
