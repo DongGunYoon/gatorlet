@@ -76,14 +76,13 @@ func SignUp() gin.HandlerFunc {
 		}
 
 		newUser := models.User{
-			Id:       primitive.NewObjectID(),
-			Name:     user.Name,
-			Email:    user.Email,
-			Password: password,
+			Id:        primitive.NewObjectID(),
+			Name:      user.Name,
+			Email:     user.Email,
+			Password:  password,
+			CreatedAt: time.Now(),
+			UpdatedAt: time.Now(),
 		}
-
-		newUser.CreatedAt, _ = time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
-		newUser.UpdatedAt, _ = time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
 
 		_, err = userCollection.InsertOne(ctx, newUser)
 		defer cancel()

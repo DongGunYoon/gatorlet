@@ -60,10 +60,9 @@ func CreateFolder() gin.HandlerFunc {
 			Id:        primitive.NewObjectID(),
 			Title:     folder.Title,
 			CreatorId: user.Id,
+			CreatedAt: time.Now(),
+			UpdatedAt: time.Now(),
 		}
-
-		newFolder.CreatedAt, _ = time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
-		newFolder.UpdatedAt, _ = time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
 
 		_, err = folderCollection.InsertOne(ctx, newFolder)
 		defer cancel()
