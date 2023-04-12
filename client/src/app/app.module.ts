@@ -24,6 +24,10 @@ import { BrowseComponent } from './browse';
 import { LibraryComponent } from './library';
 import { CardViewComponent } from './card-view';
 import { CreateFolderComponent } from './create-folder';
+import { EditCardModalComponent } from './card-view';
+import { EditFolderModalComponent } from './library';
+import { DeleteCardModalComponent } from './card-view';
+import { DeleteFolderModalComponent } from './library';
 import { CardModalComponent } from './card-view';
 import { FolderModalComponent } from './library';
 import { LogoutComponent } from './logout/logout.component';
@@ -42,6 +46,10 @@ import { LogoutComponent } from './logout/logout.component';
     CreateFolderComponent,
     CardModalComponent,
     FolderModalComponent,
+    EditCardModalComponent,
+    EditFolderModalComponent,
+    DeleteCardModalComponent,
+    DeleteFolderModalComponent,
     LogoutComponent
   ],
   imports: [

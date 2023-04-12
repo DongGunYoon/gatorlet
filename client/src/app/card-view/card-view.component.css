@@ -20,6 +20,16 @@
 .flip {
     position: absolute;
     right: 30px;
+    bottom: 20px;
+}
+.edit {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+}
+.delete {
+    position: absolute;
+    right: 30px;
     top: 20px;
 }
 

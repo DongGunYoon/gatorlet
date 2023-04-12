@@ -1,0 +1,15 @@
+<div class="modal-container">
+    <h1 mat-dialog-title>Edit card</h1>
+    
+    <mat-form-field appearance="fill"[style.width.px]=500>
+        <mat-label>Front</mat-label>
+        <input matInput [(ngModel)]="questionVal" type="question" name="question" #question>
+    </mat-form-field>
+    <mat-form-field appearance="fill"[style.width.px]=500>
+        <mat-label>Back</mat-label>
+        <input matInput [(ngModel)]="answerVal" type="answer" name="answer" #answer>
+        
+    </mat-form-field>
+    <button mat-raised-button type="submit" (click)="cancel()">Cancel</button>
+    <button mat-raised-button type="submit" (click)="editCard(question.value, answer.value)">Update card</button>
+    </div>

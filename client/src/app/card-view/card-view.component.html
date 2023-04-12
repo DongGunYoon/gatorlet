@@ -24,7 +24,10 @@
                 <div class="flip">
                     <button mat-raised-button (click)="flipCard()">Flip</button>
                 </div>
-
+                <div class="edit">
+                    <button mat-raised-button (click)="editCard()">Edit</button>
+                    <button mat-raised-button color="warn" (click)="deleteCard()">Delete</button>
+                </div>
                 <h2 class="front">
                     <div *ngIf="showFront; else elseBlock0">
                         Front

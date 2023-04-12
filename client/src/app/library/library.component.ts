@@ -67,6 +67,84 @@ export class FolderModalComponent {
   constructor(public dialogRef: MatDialogRef<FolderModalComponent>, private router: Router) {}
 
 
+  cancel() {
+    this.dialogRef.close();
+  }
+
+    createFolder(title : string) {
+
+        const data = { title };
+
+        // Define the headers with the access token
+        const headers = { Authorization: localStorage.getItem('accessToken') };
+        
+        // Make the POST request
+        axios.post('http://api.memorly.kro.kr/folder', data, { headers })
+          .then(response => {
+            // Request was successful, log the response data
+            console.log(response.data);
+
+            location.reload();
+
+          })
+          .catch(error => {
+            // Request failed, log the error message
+            console.error(error.message);
+          });
+    }
+    
+
+}
+
+@Component({
+  selector: 'edit-folder-modal',
+  templateUrl: 'edit-folder-modal.html',
+  styleUrls: ["./library.component.css"]
+})
+export class EditFolderModalComponent {
+  constructor(public dialogRef: MatDialogRef<EditFolderModalComponent>, private router: Router) {}
+
+  cancel() {
+    this.dialogRef.close();
+  }
+  
+    createFolder(title : string) {
+
+        const data = { title };
+
+        // Define the headers with the access token
+        const headers = { Authorization: localStorage.getItem('accessToken') };
+        
+        // Make the POST request
+        axios.post('http://api.memorly.kro.kr/folder', data, { headers })
+          .then(response => {
+            // Request was successful, log the response data
+            console.log(response.data);
+
+            location.reload();
+
+          })
+          .catch(error => {
+            // Request failed, log the error message
+            console.error(error.message);
+          });
+    }
+    
+
+}
+
+@Component({
+  selector: 'delete-folder-modal',
+  templateUrl: 'delete-folder-modal.html',
+  styleUrls: ["./library.component.css"]
+})
+export class DeleteFolderModalComponent {
+  constructor(public dialogRef: MatDialogRef<DeleteFolderModalComponent>, private router: Router) {}
+
+  cancel() {
+    this.dialogRef.close();
+  }
+
     createFolder(title : string) {
 
         const data = { title };
