@@ -3,7 +3,7 @@ mat-card-content {
     display: flex;
 }
 
-.center{
+  .center{
     width: 75%;
     margin: 30px auto;
   }
@@ -19,3 +19,5 @@ mat-card-content {
   .align-center {
     flex: 1 1 auto;
   }
+
+  

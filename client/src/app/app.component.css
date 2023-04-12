@@ -1,4 +1,4 @@
-.center{
+  .center{
     width: 75%;
     margin: 10px auto;
   }
@@ -13,4 +13,11 @@
   
   .align-center {
     flex: 1 1 auto;
+  }
+
+    
+  .body {
+    background-image: url('../assets/sky.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
