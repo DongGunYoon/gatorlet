@@ -7,17 +7,21 @@
   <button mat-raised-button color="primary" (click)="addItem()">Add card</button>
 <button mat-raised-button color="primary" (click)="removeItem()">Remove card</button>
 </div>
+
 <mat-card >
-  <div class="center">
+  <div class="center scrollable">
     
 <div *ngFor="let item of frontItems; let i = index; trackBy:tracker">
-  <div class="text-boxes">
+<div class="text-boxes">
   <mat-form-field [style.width.px]=375>
-  <input matInput [(ngModel)]="frontItems[i]" placeholder="Front {{i+1}}">
-  </mat-form-field><mat-form-field [style.width.px]=375>
-  <input matInput [(ngModel)]="backItems[i]" placeholder="Back {{i+1}}">
-</mat-form-field>
-</div></div>
+    <input matInput [(ngModel)]="frontItems[i]" placeholder="Front {{i+1}}">
+  </mat-form-field>
+  <mat-form-field [style.width.px]=375>
+    <input matInput [(ngModel)]="backItems[i]" placeholder="Back {{i+1}}">
+  </mat-form-field>
+</div>
+
+</div>
   <button mat-raised-button color="primary" (click)="createCards()">Create cards</button>
 </div>
 </mat-card>
