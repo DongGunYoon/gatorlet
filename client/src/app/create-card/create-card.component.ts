@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import axios from 'axios';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 import {Router} from '@angular/router';
 
@@ -12,10 +13,14 @@ styleUrls: ["./create-card.component.css"] })
 
 export class CreateCardComponent {
 
-    constructor(private router: Router) {}
+    constructor(private router: Router,
+      private snackBar: MatSnackBar) {
+      
+    }
 
     frontItems: string[] = ['', '', '', '', ''];
-  backItems: string[] = ['', '', '', '', ''];
+    backItems: string[] = ['', '', '', '', ''];
+    allEmpty: boolean = true;
 
   tracker(index: any) {
     return index;
@@ -29,6 +34,7 @@ export class CreateCardComponent {
       //This implementation has some weird buggy behavior where sometimes, the order of the cards created gets mixed up. Not sure what exactly could be causing this.
       for (var i = 0; i < this.frontItems.length; i++) {
         if (this.frontItems[i].length !== 0 && this.backItems[i].length !== 0) {
+          this.allEmpty = false;
           console.log(this.frontItems[i]);
           const data = { 
             folderId: localStorage.getItem("folderId"),
@@ -51,8 +57,11 @@ export class CreateCardComponent {
             console.error(error.message);
           });
         }
-        else {
+        else if(i == this.frontItems.length - 1 && !this.allEmpty){
           this.router.navigateByUrl('card-view');
+        }
+        else if(i == this.frontItems.length - 1 && this.allEmpty){
+          this.snackBar.open('No Cards Added -- Write a Card Before Submitting', 'x', {duration: 10000}); 
         }
       }
     }
