@@ -73,5 +73,8 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    border: 1px solid black;
+    width: 600px;
+    height: 350px;
+    border-color: grey;
+    border-width: 4px;
 }

@@ -10,8 +10,11 @@
 </div>
 
 <mat-grid-list cols="1">
-  <mat-card class="modal-container center" *ngFor="let folder of folders">
+  <mat-card class="modal-container center yel-bord" *ngFor="let folder of folders">
     <mat-icon>{{ folder.icon }}</mat-icon>
+    <!-- <button mat-button class="top-right">
+      <mat-icon class="del-icon">close</mat-icon>
+    </button> -->
     <mat-card-content>
       <h3 class="center-text">{{ folder.title }}</h3>
       <button mat-raised-button color="primary" (click)="goToFolder(folder.id)">View Cards</button>

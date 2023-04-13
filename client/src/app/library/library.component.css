@@ -49,3 +49,26 @@
   align-items: center;
   border-radius: 20px;
 }
+
+.yel-bord{
+  border-color: rgb(212, 210, 48);
+  border-width: 6px;
+  border-style: double;
+  border-top: 1px;
+  border-left: 1px;
+}
+
+.top-right{
+  margin-top: 0;
+  margin-right: 0;
+}
+
+.top-left{
+  margin-top: 0;
+  margin-left: 0;
+}
+
+.del-icon{
+  color: red;
+  transform: scale(1.5);
+}
