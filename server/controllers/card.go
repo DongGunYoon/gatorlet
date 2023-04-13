@@ -73,6 +73,71 @@ func CreateCard() gin.HandlerFunc {
 	}
 }
 
+func CreateCards() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+		defer cancel()
+
+		var cardsForm forms.CreateCardsForm
+
+		err := c.BindJSON(&cardsForm)
+		if err != nil {
+			c.JSON(http.StatusBadRequest, responses.Response{Status: http.StatusBadRequest, Message: "Binding Error", Data: nil})
+			return
+		}
+
+		if validationErr := validate.Struct(&cardsForm); validationErr != nil {
+			c.JSON(http.StatusBadRequest, responses.Response{Status: http.StatusBadRequest, Message: "Validation Error", Data: nil})
+			return
+		}
+
+		id, _ := c.Get("id")
+		folderId, _ := primitive.ObjectIDFromHex(cardsForm.FolderId)
+
+		var folder models.Folder
+		var user models.User
+
+		err = folderCollection.FindOne(ctx, bson.M{"_id": folderId, "creatorId": id}).Decode(&folder)
+		if err != nil {
+			c.JSON(http.StatusBadRequest, responses.Response{Status: http.StatusNotFound, Message: "No Matched Folder", Data: nil})
+			return
+		}
+
+		err = userCollection.FindOne(ctx, bson.M{"_id": id}).Decode(&user)
+		if err != nil {
+			c.JSON(http.StatusNotFound, responses.Response{Status: http.StatusNotFound, Message: "Not valid User", Data: nil})
+			return
+		}
+
+		var cards []models.Card
+
+		for i := 0; i < len(cardsForm.Cards); i++ {
+			cards = append(cards, models.Card{
+				Id:        primitive.NewObjectID(),
+				FolderId:  folder.Id,
+				Question:  cardsForm.Cards[i].Question,
+				Answer:    cardsForm.Cards[i].Answer,
+				CreatorId: user.Id,
+				CreatedAt: time.Now(),
+				UpdatedAt: time.Now(),
+			})
+		}
+
+		cardInterfaces := make([]interface{}, len(cards))
+		for i, card := range cards {
+			cardInterfaces[i] = card
+		}
+
+		_, err = cardCollection.InsertMany(ctx, cardInterfaces)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, responses.Response{Status: http.StatusInternalServerError, Message: "Database Error", Data: nil})
+			return
+		}
+
+		c.JSON(http.StatusCreated, responses.Response{Status: http.StatusCreated, Message: "Success", Data: map[string]interface{}{"success": true}})
+	}
+}
+
 func DeleteCard() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
