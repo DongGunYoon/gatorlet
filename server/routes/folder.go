@@ -12,4 +12,5 @@ func FolderRoute(router *gin.Engine) {
 	router.POST("/folder", controllers.CreateFolder())
 	router.GET("/folders", controllers.GetFolders())
 	router.GET("/folders/:id", controllers.GetFolder())
+	router.PUT("/folders/:id", controllers.UpdateFolder())
 }

@@ -221,7 +221,7 @@ func UpdateFolder() gin.HandlerFunc {
 
 		update := bson.M{
 			"$set": bson.M{
-				"title":  folder.Title,
+				"title":     folder.Title,
 				"updatedAt": time.Now(),
 			},
 		}
