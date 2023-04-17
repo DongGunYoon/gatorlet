@@ -56,6 +56,26 @@ export class LibraryComponent implements OnInit {
         exitAnimationDuration: '0ms'
       });
   }
+  editFolder(folderId : any) {
+        localStorage.setItem('folderToBeEdited', folderId);
+
+        this.dialog.open(EditFolderModalComponent, {
+          width: '600px',
+          height: '350px',
+          enterAnimationDuration: '0ms', 
+          exitAnimationDuration: '0ms'
+        });
+  }
+  deleteFolder(folderId : any){
+    localStorage.setItem('folderToBeDeleted', folderId);
+
+    this.dialog.open(DeleteFolderModalComponent, {
+      width: '600px',
+      height: '350px',
+      enterAnimationDuration: '0ms', 
+      exitAnimationDuration: '0ms'
+    });
+  }
 }
 
 @Component({
@@ -116,7 +136,7 @@ export class EditFolderModalComponent {
         const headers = { Authorization: localStorage.getItem('accessToken') };
         
         // Make the POST request
-        axios.post('http://api.memorly.kro.kr/folder', data, { headers })
+        axios.post('http://api.memorly.kro.kr/folders/:id', data, { headers })
           .then(response => {
             // Request was successful, log the response data
             console.log(response.data);
@@ -153,7 +173,7 @@ export class DeleteFolderModalComponent {
         const headers = { Authorization: localStorage.getItem('accessToken') };
         
         // Make the POST request
-        axios.post('http://api.memorly.kro.kr/folder', data, { headers })
+        axios.post('http://api.memorly.kro.kr/folders', data, { headers })
           .then(response => {
             // Request was successful, log the response data
             console.log(response.data);

@@ -177,7 +177,7 @@ export class CardViewComponent {
     templateUrl: 'edit-card-modal.html',
     styleUrls: ["./card-view.component.css"]
   })
-  export class EditCardModalComponent {
+    export class EditCardModalComponent {
     constructor(public dialogRef: MatDialogRef<EditCardModalComponent>, private router: Router) {}
 
 

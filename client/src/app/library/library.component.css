@@ -39,6 +39,8 @@
   justify-content: center;
   align-items: center;
   border-radius: 20px;
+  border: solid black;
+  border-width: 2px;
 }
 
 .modal-container2 {
@@ -49,14 +51,6 @@
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-}
-
-.yel-bord{
-  border-color: rgb(212, 210, 48);
-  border-width: 6px;
-  border-style: double;
-  border-top: 1px;
-  border-left: 1px;
 }
 
 .top-right{
@@ -74,19 +68,45 @@
   transform: scale(1.5);
 }
 
+.folder-icon{
+  transform: scale(1.75);
+}
+
+.edit-icon{
+  transform: scale(1.5);
+}
+
 .scrollable{
-  height: 630px;
+  height: 60vh;
   overflow: auto;
   margin-top: 30px;
 }
 .scrollable::-webkit-scrollbar {
-  width: 20px;
+  width: 1vmin;
 }
 .scrollable::-webkit-scrollbar-track{
-  background-color: rgb(27, 120, 163);
+  background-color: rgb(146, 147, 148);
   border-radius: 10px;
 }
 .scrollable::-webkit-scrollbar-thumb {
-  background-color: #2df8ff6b;
+  background-color: #1c1e1f6b;
   border-radius: 10px;
+}
+
+.folder-header h2{
+  font-size: calc(10px + 1vmin);
+}
+
+.folder-header button{
+  width: 10vw;
+  font-size: calc(3px + 1vmin);
+}
+
+.icons{
+  margin-top: 0.25vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }

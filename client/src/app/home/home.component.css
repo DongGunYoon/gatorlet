@@ -1,7 +1,12 @@
-mat-card-content {
-    justify-content: center;
-    display: flex;
-}
+  mat-card-content {
+      justify-content: center;
+      display: flex;   
+  }
+
+  .bg-light{
+    border: solid black;
+    border-width: 2px;
+  }
 
   .center{
     width: 75%;

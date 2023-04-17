@@ -1,8 +1,9 @@
 
 <div>
-<div class="p-2 folder-header text-center bg-light" style="margin-top: 58px; position:relative">
+<div class="p-2 folder-header text-center bg-light" style="margin-top: 58px; position:relative; border: solid black;
+border-width: 2px;">
 
-  <h2 class="mb-3">Folder Library</h2>
+  <h2 class="header-title">Folder Library</h2>
 
   <div class="top-right">
     <button mat-raised-button (click)="newFolder()">Add New Folder</button>
@@ -11,10 +12,27 @@
 
 <mat-grid-list cols="1" class="scrollable">
   <mat-card class="modal-container center" *ngFor="let folder of folders">
-    <mat-icon>{{ folder.icon }}</mat-icon>
-    <!-- <button mat-button class="top-right">
-      <mat-icon class="del-icon">close</mat-icon>
-    </button> -->
+    <div class="icons">
+      <div>
+        <button mat-button (click)="editFolder(folder.id)">
+          <mat-icon class="edit-icon">edit</mat-icon>
+        </button>
+      </div>
+      
+      <div>
+        <mat-icon class="folder-icon">{{ folder.icon }}</mat-icon>
+      </div>
+      
+      <div>
+        <button mat-button (click)="deleteFolder(folder.id)">
+          <mat-icon class="del-icon">delete</mat-icon>
+        </button>
+      </div>
+      
+    </div>
+
+    
+
     <mat-card-content>
       <h3 class="center-text">{{ folder.title }}</h3>
       <button mat-raised-button color="primary" (click)="goToFolder(folder.id)">View Cards</button>
