@@ -128,7 +128,7 @@ export class EditFolderModalComponent {
     this.dialogRef.close();
   }
   
-    createFolder(title : string) {
+    editFolder(title : string) {
 
         const data = { title };
 
@@ -136,7 +136,7 @@ export class EditFolderModalComponent {
         const headers = { Authorization: localStorage.getItem('accessToken') };
         
         // Make the POST request
-        axios.post('http://api.memorly.kro.kr/folders/:id', data, { headers })
+        axios.put('http://api.memorly.kro.kr/folders/' + localStorage.getItem('folderToBeEdited'), data, { headers })
           .then(response => {
             // Request was successful, log the response data
             console.log(response.data);
@@ -165,15 +165,13 @@ export class DeleteFolderModalComponent {
     this.dialogRef.close();
   }
 
-    createFolder(title : string) {
-
-        const data = { title };
+    deleteFolder() {
 
         // Define the headers with the access token
         const headers = { Authorization: localStorage.getItem('accessToken') };
         
         // Make the POST request
-        axios.post('http://api.memorly.kro.kr/folders', data, { headers })
+        axios.delete('http://api.memorly.kro.kr/folders/' + localStorage.getItem('folderToBeDeleted'), { headers })
           .then(response => {
             // Request was successful, log the response data
             console.log(response.data);
