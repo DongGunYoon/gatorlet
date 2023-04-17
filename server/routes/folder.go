@@ -13,4 +13,5 @@ func FolderRoute(router *gin.Engine) {
 	router.GET("/folders", controllers.GetFolders())
 	router.GET("/folders/:id", controllers.GetFolder())
 	router.PUT("/folders/:id", controllers.UpdateFolder())
+	router.DELETE("/folders/:id", controllers.DeleteFolder())
 }

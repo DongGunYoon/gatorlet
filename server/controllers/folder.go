@@ -155,13 +155,10 @@ func GetFolder() gin.HandlerFunc {
 func DeleteFolder() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-		defer cancel()
-
 		userId, _ := c.Get("id")
 		folderId, _ := primitive.ObjectIDFromHex(c.Param("id"))
-		cardId, _ := primitive.ObjectIDFromHex(c.Param("id"))
-		folderResult, err := folderCollection.DeleteOne(ctx, bson.M{"folderId": folderId, "creatorId": userId})
 
+		result, err := folderCollection.DeleteOne(ctx, bson.M{"_id": folderId, "creatorId": userId})
 		defer cancel()
 
 		if err != nil {
@@ -169,33 +166,12 @@ func DeleteFolder() gin.HandlerFunc {
 			return
 		}
 
-		if folderResult.DeletedCount == 0 {
-			c.JSON(http.StatusNotFound, responses.Response{Status: http.StatusNotFound, Message: "No Matched Card", Data: nil})
+		if result.DeletedCount == 0 {
+			c.JSON(http.StatusNotFound, responses.Response{Status: http.StatusNotFound, Message: "No Matched Folder", Data: nil})
 			return
 		}
 
-		cursor, err := cardCollection.Find(ctx, bson.M{"folderId": folderId})
-
-		if err != nil {
-			c.JSON(http.StatusNotFound, responses.Response{Status: http.StatusNotFound, Message: "Failed to query cards", Data: nil})
-			return
-		}
-		defer cursor.Close(ctx)
-
-		for cursor.Next(ctx) {
-			var card models.Card
-			err := cursor.Decode(&card)
-			if err != nil {
-				c.JSON(http.StatusInternalServerError, responses.Response{Status: http.StatusInternalServerError, Message: "Failed to decode card", Data: nil})
-				return
-			}
-			cardResult, err := cardCollection.DeleteOne(ctx, bson.M{"_id": cardId, "creatorId": userId})
-
-			if cardResult.DeletedCount == 0 {
-				c.JSON(http.StatusNotFound, responses.Response{Status: http.StatusNotFound, Message: "No Matched Card", Data: nil})
-				return
-			}
-		}
+		cardCollection.DeleteMany(ctx, bson.M{"folderId": folderId})
 
 		c.JSON(http.StatusOK, responses.Response{Status: http.StatusOK, Message: "Success", Data: map[string]interface{}{"success": true}})
 	}
