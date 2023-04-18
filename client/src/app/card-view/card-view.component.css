@@ -100,3 +100,9 @@
 .edit-icon{
 transform: scale(1.5);
 }
+
+.inner
+{
+    margin-top: 20px;
+    display: inline-block;
+}

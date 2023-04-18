@@ -10,6 +10,8 @@
         <input matInput [(ngModel)]="answerVal" type="answer" name="answer" #answer>
         
     </mat-form-field>
-    <button mat-raised-button type="submit" (click)="cancel()">Cancel</button>
-    <button mat-raised-button type="submit" (click)="editCard(question.value, answer.value)">Update card</button>
-    </div>
+
+    <div class="inner">
+        <button mat-raised-button style="margin-right:10px" type="submit" (click)="cancel()">Cancel</button>
+        <button mat-raised-button style="margin-left:10px" type="submit" color="primary" (click)="editCard(question.value, answer.value)">Update card</button>
+    </div></div>

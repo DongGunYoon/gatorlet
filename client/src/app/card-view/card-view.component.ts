@@ -107,8 +107,8 @@ export class CardViewComponent {
         localStorage.setItem('cardToBeDeleted', this.cards[this.position].cardId);
 
         this.dialog.open(DeleteCardModalComponent, {
-          width: '600px',
-          height: '350px',
+          width: '500px',
+          height: '200px',
           enterAnimationDuration: '0ms', 
           exitAnimationDuration: '0ms'
         });

@@ -14,7 +14,7 @@ border-width: 2px;">
   <mat-card class="modal-container center" *ngFor="let folder of folders">
     <div class="icons">
       <div>
-        <button mat-button (click)="editFolder(folder.id)">
+        <button mat-button (click)="editFolder(folder.id, folder.title)">
           <mat-icon class="edit-icon">edit</mat-icon>
         </button>
       </div>
