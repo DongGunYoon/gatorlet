@@ -98,7 +98,9 @@
 }
 
 .folder-header button{
-  width: 10vw;
+  width: 8vw;
+  min-width: 100px;
+  max-width: 300px;
   font-size: calc(3px + 1vmin);
 }
 

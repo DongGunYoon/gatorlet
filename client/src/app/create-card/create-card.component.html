@@ -1,6 +1,6 @@
 
 
-<div class="p-2 text-center bg-light" style="margin-top: 58px;">
+<div class="p-2 text-center bg-light" style="margin-top: 58px; border: solid black; border-width: 3px;">
 
   <h2 class="mb-3">Enter card contents</h2>
   <div>
@@ -8,9 +8,9 @@
     <button mat-raised-button color="primary" style="margin-left: 10px"(click)="removeItem()">Remove card</button>
   </div>
 </div>
-
-<mat-card >
-  <div class="center scrollable">
+<div style="margin-top: 3vh; border: solid black; border-width: 3px;">
+<mat-card>
+  <div class="center scrollable" >
     
 <div *ngFor="let item of frontItems; let i = index; trackBy:tracker">
 <div class="text-boxes">
@@ -23,10 +23,10 @@
 </div>
 
 </div>
-  <button mat-raised-button color="primary" (click)="createCards()">Create cards</button>
+  <button mat-raised-button color="primary" class="centeredButton"(click)="createCards()">Create cards</button>
 </div>
 </mat-card>
-
+</div>
 
 
 <!--

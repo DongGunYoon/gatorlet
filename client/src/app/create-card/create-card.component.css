@@ -39,3 +39,11 @@
     background-color: #1c1e1f6b;
     border-radius: 10px;
   }
+  .centeredButton{
+    display: block;
+    margin: 0 auto;
+    width:20vmin;
+    height: 12vmin;
+    font-size: calc(10px + 1vmin);
+    border: solid black;
+  }
