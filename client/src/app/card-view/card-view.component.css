@@ -75,6 +75,28 @@
     height: 100%;
     width: 600px;
     height: 350px;
-    border-color: grey;
-    border-width: 4px;
+    border: solid black;
+    border-width: 3px;
+}
+.addAndShuffle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.addAndShuffle button{
+    margin-top: 25px;
+    width: calc(50px + 10vw);
+    height: calc(35px + 8vh);
+    border: solid black;
+    font-size: calc(15px + 0.5vmin);
+}
+.del-icon{
+    color: red;
+    transform: scale(1.5);
+}
+
+.edit-icon{
+transform: scale(1.5);
 }

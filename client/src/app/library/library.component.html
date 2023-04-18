@@ -33,10 +33,16 @@ border-width: 2px;">
 
     
 
-    <mat-card-content>
-      <h3 class="center-text">{{ folder.title }}</h3>
-      <button mat-raised-button color="primary" (click)="goToFolder(folder.id)">View Cards</button>
+    <mat-card-content >
+      <div class="align-center-2">
+        <div>
+          <h3 class="center-text">{{ folder.title }}</h3>
+        </div>
 
+        <div>
+          <button mat-raised-button color="primary" (click)="goToFolder(folder.id)">View Cards</button>
+        </div>
+      </div>
     </mat-card-content>
   </mat-card>
 </mat-grid-list>

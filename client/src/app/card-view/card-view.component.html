@@ -1,14 +1,11 @@
 <!--Try to change this to display folder name-->
 <div>
-<div class="p-2 text-center bg-light" style="margin-top: 58px; position:relative">
-    <h2 class="mb-3">{{title}}</h2>
-    <div class="top-right">
-        <button mat-raised-button (click)="newCard()">Add new card</button>
+<div class="p-2 text-center bg-light" style="margin-top: 58px; position:relative; border: solid black; border-width: 2px;">
+    <div>
+        <h2 class="mb-3" style="font-size: calc(15px + 1.25vmin)">{{title}}</h2>
     </div>
 </div>
-<div class="cycleLeft">
-    <button mat-raised-button color="primary" (click)="shuffle()">Shuffle cards</button>
-</div>
+
 <!--
     <div class="cycleLeft">
         <button mat-raised-button color="primary" (click)="cycleLeft()"><-</button>
@@ -25,8 +22,12 @@
                     <button mat-raised-button (click)="flipCard()">Flip</button>
                 </div>
                 <div class="edit">
-                    <button mat-raised-button (click)="editCard()">Edit</button>
-                    <button mat-raised-button color="warn" (click)="deleteCard()">Delete</button>
+                    <button mat-button (click)="editCard()">
+                        <mat-icon class="edit-icon">edit</mat-icon>
+                    </button>
+                    <button mat-button (click)="deleteCard()">
+                        <mat-icon class="del-icon">delete</mat-icon>
+                    </button>
                 </div>
                 <h2 class="front">
                     <div *ngIf="showFront; else elseBlock0">
@@ -56,7 +57,7 @@
     <div class="spacing">
         <button mat-raised-button color="primary" (click)="cycleLeft()"> <- </button>
     </div>
-    <h2 style="color: white;">
+    <h2>
 
         {{size == 0 ? 0 : position + 1}} / {{size}}
 
@@ -64,4 +65,15 @@
     <div class="spacing">
         <button mat-raised-button color="primary" (click)="cycleRight()"> -> </button>
     </div>
-</div></div>
+</div>
+
+<div class="addAndShuffle">
+    <div>
+        <button mat-raised-button color="primary" (click)="shuffle()">Shuffle cards</button>
+    </div>
+    <div>
+        <button mat-raised-button (click)="newCard()">Add new card</button>
+    </div>
+</div>
+
+</div>

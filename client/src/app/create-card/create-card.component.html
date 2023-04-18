@@ -3,9 +3,10 @@
 <div class="p-2 text-center bg-light" style="margin-top: 58px;">
 
   <h2 class="mb-3">Enter card contents</h2>
-
-  <button mat-raised-button color="primary" (click)="addItem()">Add card</button>
-<button mat-raised-button color="primary" (click)="removeItem()">Remove card</button>
+  <div>
+    <button mat-raised-button color="primary" style="margin-right: 10px" (click)="addItem()">Add card</button>
+    <button mat-raised-button color="primary" style="margin-left: 10px"(click)="removeItem()">Remove card</button>
+  </div>
 </div>
 
 <mat-card >
