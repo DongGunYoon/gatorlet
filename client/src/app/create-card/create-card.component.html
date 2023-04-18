@@ -10,20 +10,22 @@
 </div>
 <div style="margin-top: 3vh; border: solid black; border-width: 3px;">
 <mat-card>
-  <div class="center scrollable" >
-    
-<div *ngFor="let item of frontItems; let i = index; trackBy:tracker">
-<div class="text-boxes">
-  <mat-form-field [style.width.px]=375>
-    <input matInput [(ngModel)]="frontItems[i]" placeholder="Front {{i+1}}">
-  </mat-form-field>
-  <mat-form-field [style.width.px]=375>
-    <input matInput [(ngModel)]="backItems[i]" placeholder="Back {{i+1}}">
-  </mat-form-field>
-</div>
+<div class="center scrollable">
+  <div style="margin-right: 20px;">
+  <div *ngFor="let item of frontItems; let i = index; trackBy:tracker">
+  <div class="text-boxes">
+    <mat-form-field [style.width.px]=375>
+      <input matInput [(ngModel)]="frontItems[i]" placeholder="Front {{i+1}}">
+    </mat-form-field>
+    <mat-form-field [style.width.px]=375>
+      <input matInput [(ngModel)]="backItems[i]" placeholder="Back {{i+1}}">
+    </mat-form-field>
+  </div>
+  </div>  
 
-</div>
+  </div>
   <button mat-raised-button color="primary" class="centeredButton"(click)="createCards()">Create cards</button>
+
 </div>
 </mat-card>
 </div>
