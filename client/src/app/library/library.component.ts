@@ -32,7 +32,7 @@ export class LibraryComponent implements OnInit {
   }
   goToFolder(folderId : any): void {
 
-    localStorage.setItem("folderId", folderId)
+    localStorage.setItem("folderId", folderId);
 
     this.http.get('http://api.memorly.kro.kr/folders/' + folderId, { "headers": {"Authorization": localStorage.getItem('accessToken') || ""} }).subscribe((response: any) => {
 
@@ -105,6 +105,7 @@ export class FolderModalComponent {
             console.log(response.data);
 
             location.reload();
+
 
           })
           .catch(error => {
