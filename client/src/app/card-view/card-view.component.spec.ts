@@ -19,7 +19,7 @@ describe('CardViewComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CardViewComponent);
     component = fixture.componentInstance;
-    component.cards.push({question: "testFront", answer: "testBack"}); //Need to add cardId
+    component.cards.push({question: "testFront", answer: "testBack", cardId: "1234"}); 
     http = TestBed.inject(HttpClient);
     fixture.detectChanges();
   });

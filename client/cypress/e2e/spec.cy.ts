@@ -14,7 +14,7 @@ describe('template spec', () => {
     cy.contains('Folder Library')
     cy.contains('Chem')
 
-    cy.get('button').eq(1).click({force: true})
+    cy.get('button').eq(3).click({force: true})
 
     cy.contains('Chem')
 
