@@ -32,7 +32,7 @@ export class LibraryComponent implements OnInit {
   }
   goToFolder(folderId : any): void {
 
-    localStorage.setItem("folderId", folderId)
+    localStorage.setItem("folderId", folderId);
 
     this.http.get('http://api.memorly.kro.kr/folders/' + folderId, { "headers": {"Authorization": localStorage.getItem('accessToken') || ""} }).subscribe((response: any) => {
 
@@ -56,12 +56,13 @@ export class LibraryComponent implements OnInit {
         exitAnimationDuration: '0ms'
       });
   }
-  editFolder(folderId : any) {
+  editFolder(folderId : any, folderName : any) {
         localStorage.setItem('folderToBeEdited', folderId);
+        localStorage.setItem('folderNameToBeEdited', folderName);
 
         this.dialog.open(EditFolderModalComponent, {
           width: '600px',
-          height: '350px',
+          height: '250px',
           enterAnimationDuration: '0ms', 
           exitAnimationDuration: '0ms'
         });
@@ -70,8 +71,8 @@ export class LibraryComponent implements OnInit {
     localStorage.setItem('folderToBeDeleted', folderId);
 
     this.dialog.open(DeleteFolderModalComponent, {
-      width: '600px',
-      height: '350px',
+      width: '500px',
+      height: '200px',
       enterAnimationDuration: '0ms', 
       exitAnimationDuration: '0ms'
     });
@@ -106,6 +107,7 @@ export class FolderModalComponent {
 
             location.reload();
 
+
           })
           .catch(error => {
             // Request failed, log the error message
@@ -123,6 +125,8 @@ export class FolderModalComponent {
 })
 export class EditFolderModalComponent {
   constructor(public dialogRef: MatDialogRef<EditFolderModalComponent>, private router: Router) {}
+
+  public folderName = localStorage.getItem('folderNameToBeEdited');
 
   cancel() {
     this.dialogRef.close();

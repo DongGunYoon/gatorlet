@@ -118,3 +118,10 @@
   align-items: center;
   justify-content: center;
 }
+
+.inner
+{
+  margin-top: 15px;
+  display: inline-block;
+    
+}

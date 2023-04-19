@@ -3,8 +3,10 @@
     
     <mat-form-field appearance="fill"[style.width.px]=500>
         <mat-label>New folder name</mat-label>
-        <input matInput type="name" name="name" #name>
+        
+        <input matInput [(ngModel)]="folderName" type="name" name="name" #name>
     </mat-form-field>
-    
-    <button mat-raised-button type="submit" color="primary" (click)="editFolder(name.value)">Edit Name</button>
-</div>
+    <div class="inner">
+        <button mat-raised-button style="margin-right:10px" type="submit" (click)="cancel()">Cancel</button>
+        <button mat-raised-button style="margin-left:10px" type="submit" color="primary" (click)="editFolder(name.value)">Edit Name</button>
+</div></div>
