@@ -35,7 +35,6 @@ export class LibraryComponent implements OnInit {
     localStorage.setItem("folderId", folderId);
 
     this.http.get('http://api.memorly.kro.kr/folders/' + folderId, { "headers": {"Authorization": localStorage.getItem('accessToken') || ""} }).subscribe((response: any) => {
-
     
           if (response.data.folder.cards === null) {
             this.router.navigateByUrl('create-card');
@@ -107,7 +106,6 @@ export class FolderModalComponent {
 
             location.reload();
 
-
           })
           .catch(error => {
             // Request failed, log the error message
@@ -115,7 +113,6 @@ export class FolderModalComponent {
           });
     }
     
-
 }
 
 @Component({
