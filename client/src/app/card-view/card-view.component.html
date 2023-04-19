@@ -19,10 +19,9 @@
         <mat-card class="card-content">
             <mat-card-content>
                 <div class="flip">
-                    <button mat-raised-button (click)="flipCard()">Flip</button>
-                    <mat-icon>rotate_left</mat-icon>
-                    <mat-icon> 360</mat-icon>
-                    <mat-icon>refresh</mat-icon>
+                    <button mat-button (click)="flipCard()">
+                        <mat-icon class="flip-icon">refresh</mat-icon>
+                    </button>
                 </div>
                 <div class="edit">
                     <button mat-button (click)="editCard()">

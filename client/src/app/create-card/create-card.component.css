@@ -42,10 +42,10 @@
   .centeredButton{
     display: block;
     margin: 0 auto;
-    width: 20vmin;
-    height: 12vmin;
-    max-width: 350px;
-    max-height: 210px;
-    font-size: calc(10px + 1vmin);
+    width: calc(50px + 7vw);
+    height: calc(35px + 4vh);
+    max-width: 200px;
+    max-height: 150px;
+    font-size: clamp(16px, calc(15px + 0.25vmin), 30px);
     border: solid black;
   }

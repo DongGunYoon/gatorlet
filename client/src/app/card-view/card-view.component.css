@@ -87,12 +87,12 @@
 
 .addAndShuffle button{
     margin-top: 25px;
-    width: calc(50px + 10vw);
-    height: calc(35px + 8vh);
+    width: calc(50px + 7vw);
+    height: calc(35px + 4vh);
     max-width: 200px;
     max-height: 150px;
     border: solid black;
-    font-size: clamp(16px, calc(15px + 0.5vmin), 30px);
+    font-size: clamp(16px, calc(15px + 0.25vmin), 30px);
 }
 .del-icon{
     color: red;
@@ -100,7 +100,10 @@
 }
 
 .edit-icon{
-transform: scale(1.5);
+    transform: scale(1.5);
+}
+.flip-icon{
+    transform: scale(-2.0);
 }
 
 .inner
