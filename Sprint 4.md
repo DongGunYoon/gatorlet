@@ -51,6 +51,14 @@ If the email is already in use, user need to use different email.
 
 api.memorly.kro.kr/users/signup
 
+### **Request Body**
+
+| Property | Type   | Nullable | Description          |
+| -------- | ------ | -------- | -------------------- |
+| email    | String | N        | email of the user    |
+| password | String | N        | password of the user |
+| name     | String | N        | name of the user     |
+
 ### **Error**
 
 | Code | Message             | Case                                    |
@@ -71,6 +79,13 @@ This api is working with registered user. If the user does not sign up our servi
 
 api.memorly.kro.kr/users/login
 
+### **Request Body**
+
+| Property | Type   | Nullable | Description          |
+| -------- | ------ | -------- | -------------------- |
+| email    | String | N        | email of the user    |
+| password | String | N        | password of the user |
+
 ### **Error**
 
 | Code | Message            | Case                                             |
@@ -78,6 +93,7 @@ api.memorly.kro.kr/users/login
 | 400  | Binding Error      | When the required input does not filled          |
 | 404  | No Matched User    | When the input email does not exist              |
 | 401  | Incorrect Password | When the input password does not match with user |
+
 
 ## **Get User**
 
@@ -111,8 +127,14 @@ If the user does not logged in, it will throw an unauthorized error
 
 ### **Path**
 
-POST
+POST  
 api.memorly.kro.kr/folder
+
+### **Request Body**
+
+| Property | Type   | Nullable | Description         |
+| -------- | ------ | -------- | ------------------- |
+| title    | String | N        | title of the folder |
 
 ### **Error**
 
@@ -121,27 +143,6 @@ api.memorly.kro.kr/folder
 | 400  | Binding Error             | When the required input does not filled       |
 | 400  | Folder Name Already Taken | When the input folder name is already existed |
 | 500  | Database Error            | When the database does not response           |
-
-## **Create Card**
-
-Creating the Card with given title
-
-**Expected Side Effect**
-
-If the user does not logged in, it will throw an unauthorized error
-
-### **Path**
-
-POST  
-api.memorly.kro.kr/card
-
-### **Error**
-
-| Code | Message        | Case                                                         |
-| ---- | -------------- | ------------------------------------------------------------ |
-| 400  | Binding Error  | When the required input does not filled                      |
-| 400  | Not valid User | When the user trying to create card inside of other's folder |
-| 500  | Database Error | When the database does not response                          |
 
 ## **Get Folders**
 
@@ -163,6 +164,7 @@ api.memorly.kro.kr/folders
 | 400  | Binding Error  | When the required input does not filled |
 | 500  | Database Error | When the database does not response     |
 
+
 ## **Get Folder**
 
 Getting the folder and cards of current user
@@ -182,6 +184,165 @@ api.memorly.kro.kr/folders/:id
 | ---- | -------------- | --------------------------------------- |
 | 400  | Binding Error  | When the required input does not filled |
 | 500  | Database Error | When the database does not response     |
+
+## **Update Folder**
+
+Updating the existed Folder
+
+**Expected Side Effect**
+
+If the user does not logged in, it will throw an unauthorized error
+
+### **Path**
+
+PUT  
+api.memorly.kro.kr/folders/:folderId
+
+### **Request Body**
+
+| Property | Type   | Nullable | Description         |
+| -------- | ------ | -------- | ------------------- |
+| title    | String | N        | title of the folder |
+
+### **Error**
+
+| Code | Message           | Case                                    |
+| ---- | ----------------- | --------------------------------------- |
+| 400  | Binding Error     | When the required input does not filled |
+| 404  | No Matched Folder | When the folder does not found          |
+| 500  | Database Error    | When the database does not response     |
+
+## **Delete Folder**
+
+Delete the existed Folder
+
+**Expected Side Effect**
+
+If the user does not logged in, it could not delete Folder
+
+### **Path**
+
+DELETE  
+api.memorly.kro.kr/folders/:id
+
+### **Error**
+
+| Code | Message           | Case                                |
+| ---- | ----------------- | ----------------------------------- |
+| 404  | No Matched Folder | When the folder does not found      |
+| 500  | Database Error    | When the database does not response |
+
+## **Create Card**
+
+Creating the Card with given title
+
+**Expected Side Effect**
+
+If the user does not logged in, it will throw an unauthorized error
+
+### **Path**
+
+POST  
+api.memorly.kro.kr/card
+
+### **Request Body**
+
+| Property | Type   | Nullable | Description          |
+| -------- | ------ | -------- | -------------------- |
+| folderId | String | N        | id of the folder     |
+| question | String | N        | question of the card |
+| answer   | String | N        | answer of the card   |
+
+### **Error**
+
+| Code | Message        | Case                                                         |
+| ---- | -------------- | ------------------------------------------------------------ |
+| 400  | Binding Error  | When the required input does not filled                      |
+| 400  | Not valid User | When the user trying to create card inside of other's folder |
+| 500  | Database Error | When the database does not response                          |
+
+## **Update Card**
+
+Updating the existed Card
+
+**Expected Side Effect**
+
+If the user does not logged in, it will throw an unauthorized error
+
+### **Path**
+
+PUT  
+api.memorly.kro.kr/cards/:cardId
+
+### **Request Body**
+
+| Property | Type   | Nullable | Description          |
+| -------- | ------ | -------- | -------------------- |
+| question | String | N        | question of the card |
+| answer   | String | N        | answer of the card   |
+
+### **Error**
+
+| Code | Message         | Case                                    |
+| ---- | --------------- | --------------------------------------- |
+| 400  | Binding Error   | When the required input does not filled |
+| 404  | No Matched Card | When the card does not found            |
+| 500  | Database Error  | When the database does not response     |
+
+## **Delete Card**
+
+Delete the existed Card
+
+**Expected Side Effect**
+
+If the user does not logged in, it could not delete Card
+
+### **Path**
+
+DELETE  
+api.memorly.kro.kr/cards/:id
+
+### **Error**
+
+| Code | Message         | Case                                |
+| ---- | --------------- | ----------------------------------- |
+| 404  | No Matched Card | When the card does not found        |
+| 500  | Database Error  | When the database does not response |
+
+## **Create Cards**
+
+Creating the Cards with given question and answer to folder
+
+**Expected Side Effect**
+
+If the user does not logged in, it will throw an unauthorized error
+
+### **Path**
+
+POST  
+api.memorly.kro.kr/cards
+
+### **Request Body**
+
+| Property | Type         | Nullable | Description      |
+| -------- | ------------ | -------- | ---------------- |
+| folderId | String       | N        | id of the folder |
+| cards    | Object Array | N        | list of card     |
+
+### **cards**
+
+| Property | Type   | Nullable | Description          |
+| -------- | ------ | -------- | -------------------- |
+| question | String | N        | question of the card |
+| answer   | String | N        | answer of the card   |
+
+### **Error**
+
+| Code | Message        | Case                                                         |
+| ---- | -------------- | ------------------------------------------------------------ |
+| 400  | Binding Error  | When the required input does not filled                      |
+| 400  | Not valid User | When the user trying to create card inside of other's folder |
+| 500  | Database Error | When the database does not response                          |
 
 Our API Documentation:
 https://documenter.getpostman.com/view/12809852/2s93CRJqgL
