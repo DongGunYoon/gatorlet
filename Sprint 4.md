@@ -26,7 +26,14 @@ Unit tests:
 - A test that checks that the back of the first card in a card array is being shown when the card is flipped
 - A test that checks that the folder name is being displayed above the card when looking through the contents of a card folder
 - A test that checks that the folder name is being displayed on the library page
-- -A test that shuffles the cards.
+- A test that checks that there are text boxes for five cards initially on the create cards screen
+- Tests which check the add and remove card functions on the create cards screen
+- A test that checks that the user will not be able to add cards from the create card screen if they have not filled out any card pairs
+- A test that the user will be able to add cards when they have filled out a pair
+- A test that checks that the shuffle function shuffles the cards
+
+Cypress test:
+- A test that logs in, clicks on a specific folder and checks that the front of the first card is being displayed properly, clicks to advance to the next card and checks that it is being displayed, then logs out
 
 
 # **List unit tests for backend**
