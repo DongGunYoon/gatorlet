@@ -23,7 +23,7 @@ export class CardViewComponent {
     position = 0;
     frontItems: string[] = ['test'];
     backItems: string[] = [];
-    //cards: string[][] = [[''], ['']];
+    
     size: number = 0;
     showFront: boolean = true;
     cards: Card[] = [];
@@ -44,9 +44,6 @@ export class CardViewComponent {
             answer: card.answer,
             cardId: card.id
             
-            //id: folder.id,
-            //title: folder.title,
-            //icon: folder.type === 'document' ? 'description' : 'folder'
           }));
           this.size = this.cards.length;
           this.title = response.data.folder.title;
@@ -118,7 +115,7 @@ export class CardViewComponent {
         
           var currIndex = this.size;
           var randIndex = 0;
-          //console.log(this.cards);
+          
           while (currIndex != 0) {
               randIndex = Math.floor(Math.random() * currIndex);
               currIndex--;
@@ -127,7 +124,6 @@ export class CardViewComponent {
                 this.cards[randIndex], this.cards[currIndex]];
           }
           
-          //console.log(this.cards);
       }
 
 }
@@ -160,7 +156,7 @@ export class CardViewComponent {
             .then(response => {
               // Request was successful, log the response data
               console.log(response.data);
-              //this.router.navigateByUrl('card-view');
+              
               location.reload();
   
             })
@@ -205,7 +201,7 @@ export class CardViewComponent {
         .then(response => {
           // Request was successful, log the response data
           console.log(response.data);
-          //this.router.navigateByUrl('card-view');
+          
           location.reload();
 
         })
@@ -243,7 +239,7 @@ export class CardViewComponent {
             .then(response => {
               // Request was successful, log the response data
               console.log(response.data);
-              //this.router.navigateByUrl('card-view');
+              
               location.reload();
   
             })

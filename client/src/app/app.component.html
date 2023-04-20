@@ -1,10 +1,4 @@
 
-<!--
-  git add .
-git commit -m "message you wanna write"
-git push
-
--->
 
 <nav class="navbar navbar-expand navbar-dark bg-dark">
   <div class="navbar-nav">
@@ -51,20 +45,10 @@ git push
       </button>
       <div class="collapse navbar-collapse" id="navbarExample01">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <!--
-          <li class="nav-item active">
-            <a class="nav-link" aria-current="page" href="/">Home</a>
-          </li>
           
-          <li class="nav-item">
-            <a class="nav-link" href="/create-card">Create New Card</a>
-          </li>
-        -->
           <li class="nav-item" *ngIf="isLoggedIn()">
             <a class="nav-link" href="/library">Card Library</a>
           </li>
-          
-
 
         </ul>
         <ul class="navbar-nav mb-auto mb-2 mb-lg-0">
@@ -77,62 +61,9 @@ git push
           <li class="nav-item" *ngIf="!isLoggedIn()">
             <a class="nav-link" href="/register">Sign up</a>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="/profile">Profile</a>
-          </li> -->
+          
         </ul>
       </div>
     </div>
   </nav>
 </header>
-
-<!--
-<section>
--->
-
-  <!--
-  Flashcard box
-  Made using Angular Material components
-  -->
-
-<!--
-<div class="main-div">
-  <td style="text-align: center">
-  <mat-card style="height:120%">
-    <mat-card-title style = "text-align: center;">
-      <br>
-      Create new flashcard
-      <br>
-    </mat-card-title>
-      
-    
-    <mat-card-content style = "text-align: center;"> 
-      <br>
-      <mat-form-field class="example-full-width" appearance="outline">
-        <mat-label>Input front text</mat-label>
-        <input matInput placeholder="Enter text">
-      </mat-form-field>
-      
-      <mat-form-field class="example-full-width" appearance="outline">
-        <mat-label>Input back text</mat-label>
-        <input matInput placeholder="Enter text">
-      </mat-form-field>
-    </mat-card-content>
-    
-
-    
-    <mat-card-actions > 
-
-      <div class ="align-center">
-        <button mat-raised-button style="text-align: center">Add card</button>
-
-      </div>
-    </mat-card-actions>
-  
-  </mat-card>
-</div>
-
-
-</section>
--->
-

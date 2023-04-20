@@ -11,7 +11,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 import { MatGridListModule } from '@angular/material/grid-list';
 
@@ -20,10 +19,8 @@ import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import { CreateCardComponent } from './create-card';
-import { BrowseComponent } from './browse';
 import { LibraryComponent } from './library';
 import { CardViewComponent } from './card-view';
-import { CreateFolderComponent } from './create-folder';
 import { EditCardModalComponent } from './card-view';
 import { EditFolderModalComponent } from './library';
 import { DeleteCardModalComponent } from './card-view';
@@ -40,10 +37,8 @@ import { LogoutComponent } from './logout/logout.component';
     LoginComponent,
     RegisterComponent,
     CreateCardComponent,
-    BrowseComponent,
     LibraryComponent,
     CardViewComponent,
-    CreateFolderComponent,
     CardModalComponent,
     FolderModalComponent,
     EditCardModalComponent,
@@ -63,7 +58,7 @@ import { LogoutComponent } from './logout/logout.component';
     FormsModule,
     MatGridListModule
   ],
-  providers: [authInterceptorProviders],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
