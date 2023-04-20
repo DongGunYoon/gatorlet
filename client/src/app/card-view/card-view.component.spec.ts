@@ -25,6 +25,7 @@ describe('CardViewComponent', () => {
     component.cards.push({question: "testFront4", answer: "testBack4", cardId: "1236"});
     component.cards.push({question: "testFront5", answer: "testBack5", cardId: "1236"});
     component.cards.push({question: "testFront6", answer: "testBack6", cardId: "1236"});
+    component.size = 6;
     http = TestBed.inject(HttpClient);
     fixture.detectChanges();
   });
@@ -52,7 +53,7 @@ describe('CardViewComponent', () => {
     
   });
 
-  /*it('should shuffle the cards when shuffle is called', () => {
+  it('should shuffle the cards when shuffle is called', () => {
 
     expect(component.cards[0].question).toBe('testFront1');
     component.shuffle();
@@ -60,7 +61,7 @@ describe('CardViewComponent', () => {
     expect(component.cards[0].question).not.toBe('testFront1');
     
     
-  });*/
+  });
 
 
 
