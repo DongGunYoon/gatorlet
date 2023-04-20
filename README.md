@@ -7,7 +7,7 @@ Any computer capable of accessing the internet and browsing modern websites shou
 
 
 
-
+#I think this part below can be removed
 
 
 The problem that we are trying to solve is what we see as the weaknesses of *Quizlet*. We are trying to create software that can help and teach people who are seeking information. Along with that, we are also going to support self-studying options for people seeking to memorize or prepare for tests.  
