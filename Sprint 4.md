@@ -6,7 +6,7 @@ http://api.memorly.kro.kr/
 
 
 # **Which issues were successfully completed**
-- The user will be prompted to create multiple cards at once after 
+- The user will be able to create multiple cards at once after clicking on an empty card folder
 - The user can edit folder names and delete folders
 - The user can edit cards and delete cards
 - A shuffle button that shuffles the cards in a folder (reverts to starting order when page is refreshed).
