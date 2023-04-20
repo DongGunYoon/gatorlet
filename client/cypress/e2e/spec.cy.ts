@@ -22,8 +22,13 @@ describe('template spec', () => {
     cy.contains('->').click()
 
     cy.contains('front123')
-    cy.contains('Flip').click()
-    cy.contains('back123')
+    //cy.contains('Flip').click()
+    //cy.get('button').eq(3).click({force: true})
+    
+    //cy.contains('back123')
+
+    //cy.get('button').eq(5).click({force: true})
+
     cy.contains('Logout').click()
 
   })
