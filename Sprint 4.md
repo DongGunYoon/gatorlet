@@ -4,21 +4,14 @@ http://memorly.kro.kr/
 Our Server Address:
 http://api.memorly.kro.kr/
 
-# **Issues our team plans to address for Sprint 3**
-- We want to finally implement the main feature of our app: creating and viewing flash cards!
-- We also need to improve the login feature so that site navigation can be more comfortable for the user.  At the moment, our site does not have a log out feature and the site doesn't change how it looks if a user is or isn't logged in.
-- We would like to spend some time making the website more visually appealing
 
 # **Which issues were successfully completed**
-- After the user has logged in, they are no longer prompted to log in again and are instead given a log out button
-- The user can create folders of cards and can add cards to the folders
-- The user can cycle through the cards in a folder forwards and backwards
-- The user can flip cards over to show their front or back respectively
-- Completed API to create a folder, create a card, get current user folders, and get the folder and cards of a user
-
-# **Which issues were not completed and why** 
-- Our site still needs some visual refining, but we were able to implement all of the core features we hoped to for this sprint.
-
+- A user can create multiple cards at once
+- The user can edit folder names and delete folders
+- The user can edit cards and delete cards
+- A shuffle button that shuffles the cards in a folder (reverts to starting order when page is refreshed).
+- UI changes to make the app more cohesive and visually appealing
+- Completed API to edit and delete a folder, edit and delete a card.
 
 # **List unit tests for frontend**
 Unit tests:
@@ -33,6 +26,7 @@ Unit tests:
 - A test that checks that the back of the first card in a card array is being shown when the card is flipped
 - A test that checks that the folder name is being displayed above the card when looking through the contents of a card folder
 - A test that checks that the folder name is being displayed on the library page
+- -A test that shuffles the cards.
 
 
 # **List unit tests for backend**
